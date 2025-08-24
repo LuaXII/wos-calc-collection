@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whiteout Survival Calculator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-theme">
+    <div class="background-animation"></div>
+    
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <h1>Whiteout Survival Calculator</h1>
+                <span class="version">v2.0</span>
+            </div>
+            
+            <nav class="nav-tabs">
+                <button id="gear-btn" class="nav-btn active" data-tab="gear">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z"/>
+                        <path d="m9 12 2 2 4-4"/>
+                    </svg>
+                    Chief Gear
+                </button>
+                <button id="charms-btn" class="nav-btn" data-tab="charms">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                    Chief Charms
+                </button>
+            </nav>
+            
+            <button id="theme-switcher" class="theme-btn" title="Toggle Theme">
+                <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="5"/>
+                    <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                </svg>
+                <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <!-- Gear Calculator Section -->
+        <section id="gear-calculator" class="calculator-section active">
+            <div class="section-header">
+                <h2>Chief Gear Upgrade Calculator</h2>
+                <p>Calculate the materials needed to upgrade your chief gear to desired levels</p>
+            </div>
+
+            <!-- Inventory Section -->
+            <div class="inventory-section glass-card">
+                <h3 class="section-title">
+                    <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                        <line x1="8" y1="21" x2="16" y2="21"/>
+                        <line x1="12" y1="17" x2="12" y2="21"/>
+                    </svg>
+                    Current Inventory
+                </h3>
+                
+                <div class="inventory-grid">
+                    <div class="inventory-item">
+                        <div class="material-info">
+                            <img src="https://www-cf.whiteoutsurvival.wiki/wp-content/uploads/2023/05/Hardened-Alloy.png" alt="Hardened Alloy" class="material-icon">
+                            <span class="material-name">Hardened Alloy</span>
+                        </div>
+                        <input type="number" id="inventory-ingot" class="inventory-input" placeholder="0" min="0">
+                    </div>
+                    
+                    <div class="inventory-item">
+                        <div class="material-info">
+                            <img src="https://www-cf.whiteoutsurvival.wiki/wp-content/uploads/2023/05/Polishing-Solution.png" alt="Polishing Solution" class="material-icon">
+                            <span class="material-name">Polishing Solution</span>
+                        </div>
+                        <input type="number" id="inventory-potion" class="inventory-input" placeholder="0" min="0">
+                    </div>
+                    
+                    <div class="inventory-item">
+                        <div class="material-info">
+                            <img src="https://www-cf.whiteoutsurvival.wiki/wp-content/uploads/2023/05/Design-Plan.png" alt="Design Plans" class="material-icon">
+                            <span class="material-name">Design Plans</span>
+                        </div>
+                        <input type="number" id="inventory-scroll" class="inventory-input" placeholder="0" min="0">
+                    </div>
+                    
+                    <div class="inventory-item">
+                        <div class="material-info">
+                            <img src="https://whiteoutdata.com/wp-content/uploads/2024/06/lunar-amber-whiteout-survival.webp" alt="Lunar Amber" class="material-icon">
+                            <span class="material-name">Lunar Amber</span>
+                        </div>
+                        <input type="number" id="inventory-amber" class="inventory-input" placeholder="0" min="0">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Global Controls -->
+            <div class="global-controls glass-card">
+                <h3 class="section-title">
+                    <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                    </svg>
+                    Quick Set for All Pieces
+                </h3>
+                
+                <div class="control-grid">
+                    <div class="form-group">
+                        <label class="form-label" for="all-current-input">Current Level (All)</label>
+                        <div class="search-container">
+                            <input type="text" id="all-current-input" class="search-input" placeholder="Select current level...">
+                            <div id="all-current-dropdown" class="dropdown-content"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="all-desired-input">Desired Level (All)</label>
+                        <div class="search-container">
+                            <input type="text" id="all-desired-input" class="search-input" placeholder="Select desired level...">
+                            <div id="all-desired-dropdown" class="dropdown-content"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gear Calculator Form -->
+            <form id="gear-form" class="gear-form">
+                <div class="gear-grid">
+                    <!-- Helmet -->
+                    <div class="gear-card glass-card" data-piece="helmet">
+                        <div class="gear-header">
+                            <div class="gear-title">
+                                <input type="checkbox" id="include-helmet" class="gear-checkbox" checked>
+                                <label for="include-helmet" class="gear-label">Helmet</label>
+                            </div>
+                            <div class="gear-icon">⛑️</div>
+                        </div>
+                        
+                        <div class="gear-controls">
+                            <div class="form-group">
+                                <label class="form-label">Current Level</label>
+                                <div class="search-container">
+                                    <input type="text" class="gear-input current search-input" data-piece="helmet" placeholder="Select level...">
+                                    <div class="dropdown-content"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Desired Level</label>
+                                <div class="search-container">
+                                    <input type="text" class="gear-input desired search-input" data-piece="helmet" placeholder="Select level...">
+                                    <div class="dropdown-content"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chestplate -->
+                    <div class="gear-card glass-card" data-piece="chestplate">
+                        <div class="gear-header">
+                            <div class="gear-title">
+                                <input type="checkbox" id="include-chestplate" class="gear-checkbox" checked>
+                                <label for="include-chestplate" class="gear-label">Chestplate</label>
+                            </div>
+                            <div class="gear-icon">🛡️</div>
+                        </div>
+                        
+                        <div class="gear-controls">
+                            <div class="form-group">
+                                <label class="form-label">Current Level</label>
+                                <div class="search-container">
+                                    <input type="text" class="gear-input current search-input" data-piece="chestplate" placeholder="Select level...">
+                                    <div class="dropdown-content"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Desired Level</label>
+                                <div class="search-container">
+                                    <input type="text" class="gear-input desired search-input" data-piece="chestplate" placeholder="Select level...">
+                                    <div class="dropdown-content"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pants -->
+                    <div class="gear-card glass-card" data-piece="pants">
+                        <div class="gear-header">
+                            <div class="gear-title">
+                                <input type="checkbox" id="include-pants" class="gear-checkbox" checked>
+                                <label for="include-pants" class="gear-label">Pants</label>
+                            </div>
+                            <div class="gear-icon">👖</div>
+                        </div>
+                        
+                        <div class="gear-controls">
+                            <div class="form-group">
+                                <label class="form-label">Current Level</label>
+                                <div class="search-container">
+                                    <input type="text" class="gear-input current search-input" data-piece="pants" placeholder="Select level...">
+                                    <div class="dropdown-content"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Desired Level</label>
+                                <div class="search-container">
+                                    <input type="text" class="gear-input desired search-input" data-piece="pants" placeholder="Select level...">
+                                    <div class="dropdown-content"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Watch -->
+                    <div class="gear-card glass-card" data-piece="watch">
+                        <div class="gear-header">
+                            <div class="gear-title">
+                                <input type="checkbox" id="include-watch" class="gear-checkbox" checked>
+                                <label for="include-watch" class="gear-label">Watch</label>
+                            </div>
+                            <div class="gear-icon">⌚</div>
+                        </div>
+                        
+                        <div class="gear-controls">
+                            <div class="form-group">
+                                <label class="form-label">Current Level</label>
+                                <div class="search-container">
+                                    <input type="text" class="gear-input current search-input" data-piece="watch" placeholder="Select level...">
+                                    <div class="dropdown-content"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Desired Level</label>
+                                <div class="search-container">
+                                    <input type="text" class="gear-input desired search-input" data-piece="watch" placeholder="Select level...">
+                                    <div class="dropdown-content"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ring -->
+                    <div class="gear-card glass-card" data-piece="ring">
+                        <div class="gear-header">
+                            <div class="gear-title">
+                                <input type="checkbox" id="include-ring" class="gear-checkbox" checked>
+                                <label for="include-ring" class="gear-label">Ring</label>
+                            </div>
+                            <div class="gear-icon">💍</div>
+                        </div>
+                        
+                        <div class="gear-controls">
+                            <div class="form-group">
+                                <label class="form-label">Current Level</label>
+                                <div class="search-container">
+                                    <input type="text" class="gear-input current search-input" data-piece="ring" placeholder="Select level...">
+                                    <div class="dropdown-content"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Desired Level</label>
+                                <div class="search-container">
+                                    <input type="text" class="gear-input desired search-input" data-piece="ring" placeholder="Select level...">
+                                    <div class="dropdown-content"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Staff -->
+                    <div class="gear-card glass-card" data-piece="staff">
+                        <div class="gear-header">
+                            <div class="gear-title">
+                                <input type="checkbox" id="include-staff" class="gear-checkbox" checked>
+                                <label for="include-staff" class="gear-label">Staff</label>
+                            </div>
+                            <div class="gear-icon">🪄</div>
+                        </div>
+                        
+                        <div class="gear-controls">
+                            <div class="form-group">
+                                <label class="form-label">Current Level</label>
+                                <div class="search-container">
+                                    <input type="text" class="gear-input current search-input" data-piece="staff" placeholder="Select level...">
+                                    <div class="dropdown-content"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Desired Level</label>
+                                <div class="search-container">
+                                    <input type="text" class="gear-input desired search-input" data-piece="staff" placeholder="Select level...">
+                                    <div class="dropdown-content"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="calculate-btn">
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 12l2 2 4-4"/>
+                        <circle cx="12" cy="12" r="10"/>
+                    </svg>
+                    Calculate Materials Needed
+                </button>
+            </form>
+
+            <!-- Results Section -->
+            <div id="gear-results" class="results-section"></div>
+        </section>
+
+        <!-- Charms Calculator Section -->
+        <section id="charms-calculator" class="calculator-section">
+            <div class="section-header">
+                <h2>Chief Charms Calculator</h2>
+                <p>This calculator is under construction. Coming soon!</p>
+            </div>
+            
+            <div class="construction-notice glass-card">
+                <div class="construction-icon">🚧</div>
+                <h3>Under Construction</h3>
+                <p>The Chief Charms calculator is currently being developed. Check back soon for updates!</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
