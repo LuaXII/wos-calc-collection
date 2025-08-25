@@ -158,7 +158,7 @@ const TRANSLATIONS = {
         available: "Available",
         comingSoon: "Coming Soon",
         supportTitle: "Support Development",
-        supportDescription: "Add me in-game for gifts and collaboration",
+        supportDescription: "If you want to contribute and support my development project. You can gift me using my ID underneath.",
         gameId: "Game ID",
         pageTitle: "Chief Gear Calculator",
         pageSubtitle: "Calculate materials needed to upgrade your chief gear",
@@ -985,4 +985,5 @@ if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initializeCommon);
 } else {
     initializeCommon();
+
 }
