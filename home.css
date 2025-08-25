@@ -1,0 +1,353 @@
+.main {
+    padding: 3rem 0 4rem;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.hero-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.1;
+}
+
+.hero-subtitle {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.calculators {
+    margin-bottom: 4rem;
+}
+
+.calculator-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.calculator-card {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.calculator-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.calculator-card:hover::before {
+    opacity: 0.05;
+}
+
+.calculator-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--border-hover);
+}
+
+.calculator-card.active {
+    border-color: var(--accent);
+}
+
+.calculator-card.coming-soon {
+    opacity: 0.6;
+    cursor: default;
+    pointer-events: none;
+}
+
+.calculator-card .card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    background: var(--gradient);
+    border-radius: 0.75rem;
+    margin-right: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.calculator-card .card-icon svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: white;
+}
+
+.card-content {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: var(--text-primary);
+}
+
+.card-status {
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.375rem;
+    display: inline-block;
+}
+
+.card-status.available {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+}
+
+.card-status.coming-soon {
+    background-color: rgba(245, 158, 11, 0.1);
+    color: var(--warning);
+}
+
+.card-arrow {
+    margin-left: 1rem;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.card-arrow svg {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.calculator-card:hover .card-arrow {
+    opacity: 1;
+    transform: translateX(0.25rem);
+}
+
+.support {
+    display: flex;
+    justify-content: center;
+}
+
+.support-card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.support-card:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow);
+}
+
+.support-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.support-icon {
+    font-size: 2.5rem;
+}
+
+.support-header h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.support-content p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.game-id-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.game-id-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.game-id-display {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    min-width: 200px;
+}
+
+.game-id-text {
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--accent);
+    flex: 1;
+}
+
+.copy-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: var(--accent);
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.copy-btn:hover {
+    transform: scale(1.05);
+    background-color: var(--accent-hover);
+}
+
+.copy-btn svg {
+    width: 1rem;
+    height: 1rem;
+}
+
+.copy-feedback {
+    position: absolute;
+    top: -2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--success);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.375rem;
+    font-size: 0.75rem;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+}
+
+.copy-feedback.show {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .main {
+        padding: 2rem 0 3rem;
+    }
+    
+    .hero {
+        margin-bottom: 3rem;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .calculator-grid {
+        grid-template-columns: 1fr;
+        max-width: none;
+    }
+    
+    .calculators {
+        margin-bottom: 3rem;
+    }
+    
+    .calculator-card {
+        padding: 1.25rem;
+    }
+    
+    .calculator-card .card-icon {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    
+    .calculator-card .card-icon svg {
+        width: 1.25rem;
+        height: 1.25rem;
+    }
+    
+    .support-card {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.75rem;
+    }
+    
+    .calculator-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .calculator-card .card-icon {
+        margin-right: 0;
+    }
+    
+    .card-arrow {
+        margin-left: 0;
+        transform: rotate(90deg);
+    }
+    
+    .calculator-card:hover .card-arrow {
+        transform: rotate(90deg) translateX(0.25rem);
+    }
+    
+    .game-id-display {
+        min-width: auto;
+        width: 100%;
+    }
+}

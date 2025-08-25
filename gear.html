@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chief Gear Calculator - Whiteout Survival</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="gear.css">
+</head>
+<body class="light-theme">
+    <div class="gradient-bg"></div>
+    
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html" class="logo-link">
+                        <h1>Whiteout Survival</h1>
+                        <span class="logo-sub">Calculator Suite</span>
+                    </a>
+                </div>
+                
+                <nav class="breadcrumb">
+                    <a href="index.html" class="breadcrumb-link" data-i18n="home">Home</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <span class="breadcrumb-current" data-i18n="chiefGear">Chief Gear</span>
+                </nav>
+                
+                <div class="header-controls">
+                    <div class="language-selector">
+                        <button id="language-btn" class="language-btn" title="Language">
+                            EN
+                        </button>
+                        <div id="language-dropdown" class="language-dropdown">
+                        </div>
+                    </div>
+                    
+                    <button id="theme-switcher" class="theme-btn" title="Toggle Theme">
+                        <svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"/>
+                            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                        </svg>
+                        <svg class="theme-icon moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <section class="page-header">
+                <h2 class="page-title" data-i18n="pageTitle">Chief Gear Calculator</h2>
+                <p class="page-subtitle" data-i18n="pageSubtitle">Calculate materials needed to upgrade your chief gear</p>
+            </section>
+
+            <div class="calculator-layout">
+                <aside class="sidebar">
+                    <div class="inventory-card card">
+                        <h3 class="card-title">
+                            <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                <line x1="8" y1="21" x2="16" y2="21"/>
+                                <line x1="12" y1="17" x2="12" y2="21"/>
+                            </svg>
+                            <span data-i18n="currentInventory">Current Inventory</span>
+                        </h3>
+                        
+                        <div class="inventory-grid">
+                            <div class="inventory-item">
+                                <div class="material-info">
+                                    <div class="material-icon" data-icon-for="ingot">⚒️</div>
+                                    <span class="material-name" data-material="ingot">Hardened Alloy</span>
+                                </div>
+                                <input type="number" id="inventory-ingot" class="form-input" placeholder="0" min="0">
+                            </div>
+                            
+                            <div class="inventory-item">
+                                <div class="material-info">
+                                    <div class="material-icon" data-icon-for="potion">🧪</div>
+                                    <span class="material-name" data-material="potion">Polishing Solution</span>
+                                </div>
+                                <input type="number" id="inventory-potion" class="form-input" placeholder="0" min="0">
+                            </div>
+                            
+                            <div class="inventory-item">
+                                <div class="material-info">
+                                    <div class="material-icon" data-icon-for="scroll">📜</div>
+                                    <span class="material-name" data-material="scroll">Design Plans</span>
+                                </div>
+                                <input type="number" id="inventory-scroll" class="form-input" placeholder="0" min="0">
+                            </div>
+                            
+                            <div class="inventory-item">
+                                <div class="material-info">
+                                    <div class="material-icon" data-icon-for="amber">💎</div>
+                                    <span class="material-name" data-material="amber">Lunar Amber</span>
+                                </div>
+                                <input type="number" id="inventory-amber" class="form-input" placeholder="0" min="0">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="global-controls card">
+                        <h3 class="card-title">
+                            <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                            </svg>
+                            <span data-i18n="quickSetAll">Quick Set All</span>
+                        </h3>
+                        
+                        <div class="control-grid">
+                            <div class="form-group">
+                                <label class="form-label" data-i18n="currentLevel">Current Level</label>
+                                <div class="dropdown" id="all-current-dropdown">
+                                    <button type="button" class="dropdown-toggle">
+                                        <span class="dropdown-text" data-i18n="selectLevel">Select level...</span>
+                                        <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M6 9l6 6 6-6"/>
+                                        </svg>
+                                    </button>
+                                    <div class="dropdown-menu"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" data-i18n="desiredLevel">Desired Level</label>
+                                <div class="dropdown" id="all-desired-dropdown">
+                                    <button type="button" class="dropdown-toggle">
+                                        <span class="dropdown-text" data-i18n="selectLevel">Select level...</span>
+                                        <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M6 9l6 6 6-6"/>
+                                        </svg>
+                                    </button>
+                                    <div class="dropdown-menu"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <main class="main-content">
+                    <form id="gear-form" class="gear-form">
+                        <div class="gear-grid">
+                            <!-- Gear Card Template -->
+                            <div class="gear-card card" data-piece="helmet">
+                                <div class="gear-header">
+                                    <div class="gear-title">
+                                        <input type="checkbox" id="include-helmet" class="gear-checkbox" checked>
+                                        <label for="include-helmet" class="gear-label">
+                                            <span class="gear-icon">⛑️</span>
+                                            <span class="gear-name" data-i18n="helmet">Helmet</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="gear-controls">
+                                    <div class="form-group">
+                                        <label class="form-label" data-i18n="currentLevel">Current Level</label>
+                                        <div class="dropdown">
+                                            <button type="button" class="dropdown-toggle">
+                                                <span class="dropdown-text" data-i18n="selectLevel">Select level...</span>
+                                                <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <path d="M6 9l6 6 6-6"/>
+                                                </svg>
+                                            </button>
+                                            <div class="dropdown-menu"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label" data-i18n="desiredLevel">Desired Level</label>
+                                        <div class="dropdown">
+                                            <button type="button" class="dropdown-toggle">
+                                                <span class="dropdown-text" data-i18n="selectLevel">Select level...</span>
+                                                <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <path d="M6 9l6 6 6-6"/>
+                                                </svg>
+                                            </button>
+                                            <div class="dropdown-menu"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="gear-card card" data-piece="chestplate">
+                                <div class="gear-header">
+                                    <div class="gear-title">
+                                        <input type="checkbox" id="include-chestplate" class="gear-checkbox" checked>
+                                        <label for="include-chestplate" class="gear-label">
+                                            <span class="gear-icon">🛡️</span>
+                                            <span class="gear-name" data-i18n="chestplate">Chestplate</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="gear-controls">
+                                    <div class="form-group">
+                                        <label class="form-label" data-i18n="currentLevel">Current Level</label>
+                                        <div class="dropdown">
+                                            <button type="button" class="dropdown-toggle">
+                                                <span class="dropdown-text" data-i18n="selectLevel">Select level...</span>
+                                                <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <path d="M6 9l6 6 6-6"/>
+                                                </svg>
+                                            </button>
+                                            <div class="dropdown-menu"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label" data-i18n="desiredLevel">Desired Level</label>
+                                        <div class="dropdown">
+                                            <button type="button" class="dropdown-toggle">
+                                                <span class="dropdown-text" data-i18n="selectLevel">Select level...</span>
+                                                <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <path d="M6 9l6 6 6-6"/>
+                                                </svg>
+                                            </button>
+                                            <div class="dropdown-menu"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="gear-card card" data-piece="pants">
+                                <div class="gear-header">
+                                    <div class="gear-title">
+                                        <input type="checkbox" id="include-pants" class="gear-checkbox" checked>
+                                        <label for="include-pants" class="gear-label">
+                                            <span class="gear-icon">👖</span>
+                                            <span class="gear-name" data-i18n="pants">Pants</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="gear-controls">
+                                    <div class="form-group">
+                                        <label class="form-label" data-i18n="currentLevel">Current Level</label>
+                                        <div class="dropdown">
+                                            <button type="button" class="dropdown-toggle">
+                                                <span class="dropdown-text" data-i18n="selectLevel">Select level...</span>
+                                                <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <path d="M6 9l6 6 6-6"/>
+                                                </svg>
+                                            </button>
+                                            <div class="dropdown-menu"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label" data-i18n="desiredLevel">Desired Level</label>
+                                        <div class="dropdown">
+                                            <button type="button" class="dropdown-toggle">
+                                                <span class="dropdown-text" data-i18n="selectLevel">Select level...</span>
+                                                <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <path d="M6 9l6 6 6-6"/>
+                                                </svg>
+                                            </button>
+                                            <div class="dropdown-menu"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="gear-card card" data-piece="watch">
+                                <div class="gear-header">
+                                    <div class="gear-title">
+                                        <input type="checkbox" id="include-watch" class="gear-checkbox" checked>
+                                        <label for="include-watch" class="gear-label">
+                                            <span class="gear-icon">⌚</span>
+                                            <span class="gear-name" data-i18n="watch">Watch</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="gear-controls">
+                                    <div class="form-group">
+                                        <label class="form-label" data-i18n="currentLevel">Current Level</label>
+                                        <div class="dropdown">
+                                            <button type="button" class="dropdown-toggle">
+                                                <span class="dropdown-text" data-i18n="selectLevel">Select level...</span>
+                                                <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <path d="M6 9l6 6 6-6"/>
+                                                </svg>
+                                            </button>
+                                            <div class="dropdown-menu"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label" data-i18n="desiredLevel">Desired Level</label>
+                                        <div class="dropdown">
+                                            <button type="button" class="dropdown-toggle">
+                                                <span class="dropdown-text" data-i18n="selectLevel">Select level...</span>
+                                                <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <path d="M6 9l6 6 6-6"/>
+                                                </svg>
+                                            </button>
+                                            <div class="dropdown-menu"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="gear-card card" data-piece="ring">
+                                <div class="gear-header">
+                                    <div class="gear-title">
+                                        <input type="checkbox" id="include-ring" class="gear-checkbox" checked>
+                                        <label for="include-ring" class="gear-label">
+                                            <span class="gear-icon">💍</span>
+                                            <span class="gear-name" data-i18n="ring">Ring</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="gear-controls">
+                                    <div class="form-group">
+                                        <label class="form-label" data-i18n="currentLevel">Current Level</label>
+                                        <div class="dropdown">
+                                            <button type="button" class="dropdown-toggle">
+                                                <span class="dropdown-text" data-i18n="selectLevel">Select level...</span>
+                                                <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <path d="M6 9l6 6 6-6"/>
+                                                </svg>
+                                            </button>
+                                            <div class="dropdown-menu"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label" data-i18n="desiredLevel">Desired Level</label>
+                                        <div class="dropdown">
+                                            <button type="button" class="dropdown-toggle">
+                                                <span class="dropdown-text" data-i18n="selectLevel">Select level...</span>
+                                                <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <path d="M6 9l6 6 6-6"/>
+                                                </svg>
+                                            </button>
+                                            <div class="dropdown-menu"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="gear-card card" data-piece="staff">
+                                <div class="gear-header">
+                                    <div class="gear-title">
+                                        <input type="checkbox" id="include-staff" class="gear-checkbox" checked>
+                                        <label for="include-staff" class="gear-label">
+                                            <span class="gear-icon">🪄</span>
+                                            <span class="gear-name" data-i18n="staff">Staff</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="gear-controls">
+                                    <div class="form-group">
+                                        <label class="form-label" data-i18n="currentLevel">Current Level</label>
+                                        <div class="dropdown">
+                                            <button type="button" class="dropdown-toggle">
+                                                <span class="dropdown-text" data-i18n="selectLevel">Select level...</span>
+                                                <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <path d="M6 9l6 6 6-6"/>
+                                                </svg>
+                                            </button>
+                                            <div class="dropdown-menu"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label" data-i18n="desiredLevel">Desired Level</label>
+                                        <div class="dropdown">
+                                            <button type="button" class="dropdown-toggle">
+                                                <span class="dropdown-text" data-i18n="selectLevel">Select level...</span>
+                                                <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <path d="M6 9l6 6 6-6"/>
+                                                </svg>
+                                            </button>
+                                            <div class="dropdown-menu"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary calculate-btn">
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M9 12l2 2 4-4"/>
+                            </svg>
+                            <span data-i18n="calculateMaterialsNeeded">Calculate Materials Needed</span>
+                        </button>
+                    </form>
+
+                    <div id="gear-results" class="results-section"></div>
+                </main>
+            </div>
+        </div>
+    </main>
+
+    <script src="common.js"></script>
+    <script src="gear.js"></script>
+</body>
+</html>

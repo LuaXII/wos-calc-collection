@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chief Charms Calculator - Whiteout Survival</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="charms-style.css">
+</head>
+<body class="light-theme">
+    <div class="background-animation"></div>
+    
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                    <h1>Whiteout Survival Calculator</h1>
+                </a>
+                <span class="version">v2.0</span>
+            </div>
+            
+            <nav class="breadcrumb">
+                <a href="index.html" class="breadcrumb-link">Home</a>
+                <span class="breadcrumb-separator">›</span>
+                <span class="breadcrumb-current">Chief Charms</span>
+            </nav>
+            
+            <div class="header-controls">
+                <div class="language-selector">
+                    <button id="language-btn" class="language-btn" title="Select Language">
+                        EN
+                    </button>
+                    <div id="language-dropdown" class="language-dropdown">
+                        <div class="language-option active" data-lang="en">
+                            <span class="language-flag">🇺🇸</span>
+                            <span class="language-name">English</span>
+                        </div>
+                        <div class="language-option" data-lang="zh">
+                            <span class="language-flag">🇨🇳</span>
+                            <span class="language-name">中文</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <button id="theme-switcher" class="theme-btn" title="Toggle Theme">
+                    <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"/>
+                        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                    </svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="calculator-section">
+            <div class="section-header">
+                <h2>Chief Charms Calculator</h2>
+                <p>This calculator is under construction. Coming soon!</p>
+            </div>
+            
+            <div class="construction-notice glass-card">
+                <div class="construction-content">
+                    <div class="construction-icon">🚧</div>
+                    <h3>Under Construction</h3>
+                    <p class="construction-description">
+                        The Chief Charms calculator is currently being developed. This powerful tool will help you:
+                    </p>
+                    
+                    <div class="planned-features">
+                        <div class="feature-category">
+                            <h4>🎯 Charm Analysis</h4>
+                            <ul>
+                                <li>Calculate optimal charm combinations</li>
+                                <li>Analyze effect synergies</li>
+                                <li>Compare different setups</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-category">
+                            <h4>📊 Upgrade Planning</h4>
+                            <ul>
+                                <li>Material cost calculations</li>
+                                <li>Upgrade path optimization</li>
+                                <li>Resource requirement analysis</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-category">
+                            <h4>⚡ Performance Metrics</h4>
+                            <ul>
+                                <li>Combat effectiveness ratings</li>
+                                <li>Statistical improvements</li>
+                                <li>Build recommendations</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="development-status">
+                        <div class="status-item">
+                            <div class="status-icon">⏳</div>
+                            <div class="status-text">
+                                <strong>Development Status:</strong> In Progress
+                            </div>
+                        </div>
+                        
+                        <div class="status-item">
+                            <div class="status-icon">🎯</div>
+                            <div class="status-text">
+                                <strong>Expected Release:</strong> Coming Soon
+                            </div>
+                        </div>
+                        
+                        <div class="status-item">
+                            <div class="status-icon">💡</div>
+                            <div class="status-text">
+                                <strong>Current Focus:</strong> Data Collection & UI Design
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cta-section">
+                        <p class="cta-text">
+                            Want to be notified when it's ready? Follow our updates or check back soon!
+                        </p>
+                        <div class="cta-buttons">
+                            <a href="index.html" class="cta-button primary">
+                                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+                                </svg>
+                                Back to Home
+                            </a>
+                            <a href="gear.html" class="cta-button secondary">
+                                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z"/>
+                                    <path d="m9 12 2 2 4-4"/>
+                                </svg>
+                                Try Gear Calculator
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="preview-section glass-card">
+                <h3 class="preview-title">
+                    <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                    Preview: What's Coming
+                </h3>
+                
+                <div class="preview-grid">
+                    <div class="preview-card">
+                        <div class="preview-icon">🔮</div>
+                        <h4>Charm Database</h4>
+                        <p>Comprehensive database of all available charms with detailed stats and effects.</p>
+                    </div>
+                    
+                    <div class="preview-card">
+                        <div class="preview-icon">🧮</div>
+                        <h4>Cost Calculator</h4>
+                        <p>Calculate exact materials needed for upgrading charms to your desired levels.</p>
+                    </div>
+                    
+                    <div class="preview-card">
+                        <div class="preview-icon">🎯</div>
+                        <h4>Build Optimizer</h4>
+                        <p>Find the optimal charm combinations for your playstyle and strategy.</p>
+                    </div>
+                    
+                    <div class="preview-card">
+                        <div class="preview-icon">📈</div>
+                        <h4>Effect Analysis</h4>
+                        <p>Detailed breakdown of how charm combinations affect your chief's performance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="charms-script.js"></script>
+</body>
+</html>
