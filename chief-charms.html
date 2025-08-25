@@ -110,7 +110,7 @@
                                 <label class="form-label" data-i18n="setAllFrom">Set All From</label>
                                 <div class="dropdown" id="all-from-dropdown">
                                     <button type="button" class="dropdown-toggle">
-                                        <span class="dropdown-text">1</span>
+                                        <span class="dropdown-text">0</span>
                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                             <path d="M6 9l6 6 6-6"/>
                                         </svg>
@@ -123,7 +123,7 @@
                                 <label class="form-label" data-i18n="setAllTo">Set All To</label>
                                 <div class="dropdown" id="all-to-dropdown">
                                     <button type="button" class="dropdown-toggle">
-                                        <span class="dropdown-text">2</span>
+                                        <span class="dropdown-text">0</span>
                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                             <path d="M6 9l6 6 6-6"/>
                                         </svg>
@@ -153,7 +153,7 @@
                                                 <label class="form-label-small" data-i18n="setPieceFrom">Set From</label>
                                                 <div class="dropdown piece-from-dropdown">
                                                     <button type="button" class="dropdown-toggle">
-                                                        <span class="dropdown-text">1</span>
+                                                        <span class="dropdown-text">0</span>
                                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                             <path d="M6 9l6 6 6-6"/>
                                                         </svg>
@@ -165,7 +165,7 @@
                                                 <label class="form-label-small" data-i18n="setPieceTo">Set To</label>
                                                 <div class="dropdown piece-to-dropdown">
                                                     <button type="button" class="dropdown-toggle">
-                                                        <span class="dropdown-text">2</span>
+                                                        <span class="dropdown-text">0</span>
                                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                             <path d="M6 9l6 6 6-6"/>
                                                         </svg>
@@ -178,17 +178,17 @@
                                 </div>
                                 
                                 <div class="charm-slots">
-                                    <div class="charm-slot">
+                                    <div class="charm-slot" data-slot="1">
                                         <div class="slot-header">
                                             <span class="slot-title" data-i18n="charmSlot">Charm Slot</span>
                                             <span class="slot-number">1</span>
                                         </div>
                                         <div class="slot-controls">
                                             <div class="form-group">
-                                                <label class="form-label" data-i18n="fromLevel">From Level</label>
+                                                <label class="form-label" data-i18n="fromLevel">From</label>
                                                 <div class="dropdown">
                                                     <button type="button" class="dropdown-toggle">
-                                                        <span class="dropdown-text">1</span>
+                                                        <span class="dropdown-text">0</span>
                                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                             <path d="M6 9l6 6 6-6"/>
                                                         </svg>
@@ -197,10 +197,10 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="form-label" data-i18n="toLevel">To Level</label>
+                                                <label class="form-label" data-i18n="toLevel">To</label>
                                                 <div class="dropdown">
                                                     <button type="button" class="dropdown-toggle">
-                                                        <span class="dropdown-text">2</span>
+                                                        <span class="dropdown-text">0</span>
                                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                             <path d="M6 9l6 6 6-6"/>
                                                         </svg>
@@ -209,29 +209,19 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="stat-display">
-                                            <div class="stat-item">
-                                                <span class="stat-label" data-i18n="statBonus">Stat Bonus:</span>
-                                                <span class="stat-value">+0.00%</span>
-                                            </div>
-                                            <div class="stat-item">
-                                                <span class="stat-label" data-i18n="powerGained">Power:</span>
-                                                <span class="stat-value">+0</span>
-                                            </div>
-                                        </div>
                                     </div>
 
-                                    <div class="charm-slot">
+                                    <div class="charm-slot" data-slot="2">
                                         <div class="slot-header">
                                             <span class="slot-title" data-i18n="charmSlot">Charm Slot</span>
                                             <span class="slot-number">2</span>
                                         </div>
                                         <div class="slot-controls">
                                             <div class="form-group">
-                                                <label class="form-label" data-i18n="fromLevel">From Level</label>
+                                                <label class="form-label" data-i18n="fromLevel">From</label>
                                                 <div class="dropdown">
                                                     <button type="button" class="dropdown-toggle">
-                                                        <span class="dropdown-text">1</span>
+                                                        <span class="dropdown-text">0</span>
                                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                             <path d="M6 9l6 6 6-6"/>
                                                         </svg>
@@ -240,10 +230,10 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="form-label" data-i18n="toLevel">To Level</label>
+                                                <label class="form-label" data-i18n="toLevel">To</label>
                                                 <div class="dropdown">
                                                     <button type="button" class="dropdown-toggle">
-                                                        <span class="dropdown-text">2</span>
+                                                        <span class="dropdown-text">0</span>
                                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                             <path d="M6 9l6 6 6-6"/>
                                                         </svg>
@@ -252,29 +242,19 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="stat-display">
-                                            <div class="stat-item">
-                                                <span class="stat-label" data-i18n="statBonus">Stat Bonus:</span>
-                                                <span class="stat-value">+0.00%</span>
-                                            </div>
-                                            <div class="stat-item">
-                                                <span class="stat-label" data-i18n="powerGained">Power:</span>
-                                                <span class="stat-value">+0</span>
-                                            </div>
-                                        </div>
                                     </div>
 
-                                    <div class="charm-slot">
+                                    <div class="charm-slot" data-slot="3">
                                         <div class="slot-header">
                                             <span class="slot-title" data-i18n="charmSlot">Charm Slot</span>
                                             <span class="slot-number">3</span>
                                         </div>
                                         <div class="slot-controls">
                                             <div class="form-group">
-                                                <label class="form-label" data-i18n="fromLevel">From Level</label>
+                                                <label class="form-label" data-i18n="fromLevel">From</label>
                                                 <div class="dropdown">
                                                     <button type="button" class="dropdown-toggle">
-                                                        <span class="dropdown-text">1</span>
+                                                        <span class="dropdown-text">0</span>
                                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                             <path d="M6 9l6 6 6-6"/>
                                                         </svg>
@@ -283,10 +263,10 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="form-label" data-i18n="toLevel">To Level</label>
+                                                <label class="form-label" data-i18n="toLevel">To</label>
                                                 <div class="dropdown">
                                                     <button type="button" class="dropdown-toggle">
-                                                        <span class="dropdown-text">2</span>
+                                                        <span class="dropdown-text">0</span>
                                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                             <path d="M6 9l6 6 6-6"/>
                                                         </svg>
@@ -295,20 +275,9 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="stat-display">
-                                            <div class="stat-item">
-                                                <span class="stat-label" data-i18n="statBonus">Stat Bonus:</span>
-                                                <span class="stat-value">+0.00%</span>
-                                            </div>
-                                            <div class="stat-item">
-                                                <span class="stat-label" data-i18n="powerGained">Power:</span>
-                                                <span class="stat-value">+0</span>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
-
                             <div class="gear-card card" data-piece="chestplate">
                                 <div class="gear-header">
                                     <div class="gear-title">
@@ -324,7 +293,7 @@
                                                 <label class="form-label-small" data-i18n="setPieceFrom">Set From</label>
                                                 <div class="dropdown piece-from-dropdown">
                                                     <button type="button" class="dropdown-toggle">
-                                                        <span class="dropdown-text">1</span>
+                                                        <span class="dropdown-text">0</span>
                                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                             <path d="M6 9l6 6 6-6"/>
                                                         </svg>
@@ -336,7 +305,7 @@
                                                 <label class="form-label-small" data-i18n="setPieceTo">Set To</label>
                                                 <div class="dropdown piece-to-dropdown">
                                                     <button type="button" class="dropdown-toggle">
-                                                        <span class="dropdown-text">2</span>
+                                                        <span class="dropdown-text">0</span>
                                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                             <path d="M6 9l6 6 6-6"/>
                                                         </svg>
@@ -349,17 +318,17 @@
                                 </div>
                                 
                                 <div class="charm-slots">
-                                    <div class="charm-slot">
+                                    <div class="charm-slot" data-slot="1">
                                         <div class="slot-header">
                                             <span class="slot-title" data-i18n="charmSlot">Charm Slot</span>
                                             <span class="slot-number">1</span>
                                         </div>
                                         <div class="slot-controls">
                                             <div class="form-group">
-                                                <label class="form-label" data-i18n="fromLevel">From Level</label>
+                                                <label class="form-label" data-i18n="fromLevel">From</label>
                                                 <div class="dropdown">
                                                     <button type="button" class="dropdown-toggle">
-                                                        <span class="dropdown-text">1</span>
+                                                        <span class="dropdown-text">0</span>
                                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                             <path d="M6 9l6 6 6-6"/>
                                                         </svg>
@@ -368,10 +337,10 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="form-label" data-i18n="toLevel">To Level</label>
+                                                <label class="form-label" data-i18n="toLevel">To</label>
                                                 <div class="dropdown">
                                                     <button type="button" class="dropdown-toggle">
-                                                        <span class="dropdown-text">2</span>
+                                                        <span class="dropdown-text">0</span>
                                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                             <path d="M6 9l6 6 6-6"/>
                                                         </svg>
@@ -380,29 +349,18 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="stat-display">
-                                            <div class="stat-item">
-                                                <span class="stat-label" data-i18n="statBonus">Stat Bonus:</span>
-                                                <span class="stat-value">+0.00%</span>
-                                            </div>
-                                            <div class="stat-item">
-                                                <span class="stat-label" data-i18n="powerGained">Power:</span>
-                                                <span class="stat-value">+0</span>
-                                            </div>
-                                        </div>
                                     </div>
-
-                                    <div class="charm-slot">
+                                    <div class="charm-slot" data-slot="2">
                                         <div class="slot-header">
                                             <span class="slot-title" data-i18n="charmSlot">Charm Slot</span>
                                             <span class="slot-number">2</span>
                                         </div>
                                         <div class="slot-controls">
                                             <div class="form-group">
-                                                <label class="form-label" data-i18n="fromLevel">From Level</label>
+                                                <label class="form-label" data-i18n="fromLevel">From</label>
                                                 <div class="dropdown">
                                                     <button type="button" class="dropdown-toggle">
-                                                        <span class="dropdown-text">1</span>
+                                                        <span class="dropdown-text">0</span>
                                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                             <path d="M6 9l6 6 6-6"/>
                                                         </svg>
@@ -411,10 +369,10 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="form-label" data-i18n="toLevel">To Level</label>
+                                                <label class="form-label" data-i18n="toLevel">To</label>
                                                 <div class="dropdown">
                                                     <button type="button" class="dropdown-toggle">
-                                                        <span class="dropdown-text">2</span>
+                                                        <span class="dropdown-text">0</span>
                                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                             <path d="M6 9l6 6 6-6"/>
                                                         </svg>
@@ -423,29 +381,18 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="stat-display">
-                                            <div class="stat-item">
-                                                <span class="stat-label" data-i18n="statBonus">Stat Bonus:</span>
-                                                <span class="stat-value">+0.00%</span>
-                                            </div>
-                                            <div class="stat-item">
-                                                <span class="stat-label" data-i18n="powerGained">Power:</span>
-                                                <span class="stat-value">+0</span>
-                                            </div>
-                                        </div>
                                     </div>
-
-                                    <div class="charm-slot">
+                                    <div class="charm-slot" data-slot="3">
                                         <div class="slot-header">
                                             <span class="slot-title" data-i18n="charmSlot">Charm Slot</span>
                                             <span class="slot-number">3</span>
                                         </div>
                                         <div class="slot-controls">
                                             <div class="form-group">
-                                                <label class="form-label" data-i18n="fromLevel">From Level</label>
+                                                <label class="form-label" data-i18n="fromLevel">From</label>
                                                 <div class="dropdown">
                                                     <button type="button" class="dropdown-toggle">
-                                                        <span class="dropdown-text">1</span>
+                                                        <span class="dropdown-text">0</span>
                                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                             <path d="M6 9l6 6 6-6"/>
                                                         </svg>
@@ -454,26 +401,16 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="form-label" data-i18n="toLevel">To Level</label>
+                                                <label class="form-label" data-i18n="toLevel">To</label>
                                                 <div class="dropdown">
                                                     <button type="button" class="dropdown-toggle">
-                                                        <span class="dropdown-text">2</span>
+                                                        <span class="dropdown-text">0</span>
                                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                             <path d="M6 9l6 6 6-6"/>
                                                         </svg>
                                                     </button>
                                                     <div class="dropdown-menu"></div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="stat-display">
-                                            <div class="stat-item">
-                                                <span class="stat-label" data-i18n="statBonus">Stat Bonus:</span>
-                                                <span class="stat-value">+0.00%</span>
-                                            </div>
-                                            <div class="stat-item">
-                                                <span class="stat-label" data-i18n="powerGained">Power:</span>
-                                                <span class="stat-value">+0</span>
                                             </div>
                                         </div>
                                     </div>
@@ -495,7 +432,7 @@
                                                 <label class="form-label-small" data-i18n="setPieceFrom">Set From</label>
                                                 <div class="dropdown piece-from-dropdown">
                                                     <button type="button" class="dropdown-toggle">
-                                                        <span class="dropdown-text">1</span>
+                                                        <span class="dropdown-text">0</span>
                                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                             <path d="M6 9l6 6 6-6"/>
                                                         </svg>
@@ -507,7 +444,7 @@
                                                 <label class="form-label-small" data-i18n="setPieceTo">Set To</label>
                                                 <div class="dropdown piece-to-dropdown">
                                                     <button type="button" class="dropdown-toggle">
-                                                        <span class="dropdown-text">2</span>
+                                                        <span class="dropdown-text">0</span>
                                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                             <path d="M6 9l6 6 6-6"/>
                                                         </svg>
@@ -520,17 +457,17 @@
                                 </div>
                                 
                                 <div class="charm-slots">
-                                    <div class="charm-slot">
+                                    <div class="charm-slot" data-slot="1">
                                         <div class="slot-header">
                                             <span class="slot-title" data-i18n="charmSlot">Charm Slot</span>
                                             <span class="slot-number">1</span>
                                         </div>
                                         <div class="slot-controls">
                                             <div class="form-group">
-                                                <label class="form-label" data-i18n="fromLevel">From Level</label>
+                                                <label class="form-label" data-i18n="fromLevel">From</label>
                                                 <div class="dropdown">
                                                     <button type="button" class="dropdown-toggle">
-                                                        <span class="dropdown-text">1</span>
+                                                        <span class="dropdown-text">0</span>
                                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                             <path d="M6 9l6 6 6-6"/>
                                                         </svg>
@@ -539,10 +476,10 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="form-label" data-i18n="toLevel">To Level</label>
+                                                <label class="form-label" data-i18n="toLevel">To</label>
                                                 <div class="dropdown">
                                                     <button type="button" class="dropdown-toggle">
-                                                        <span class="dropdown-text">2</span>
+                                                        <span class="dropdown-text">0</span>
                                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                             <path d="M6 9l6 6 6-6"/>
                                                         </svg>
@@ -551,29 +488,18 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="stat-display">
-                                            <div class="stat-item">
-                                                <span class="stat-label" data-i18n="statBonus">Stat Bonus:</span>
-                                                <span class="stat-value">+0.00%</span>
-                                            </div>
-                                            <div class="stat-item">
-                                                <span class="stat-label" data-i18n="powerGained">Power:</span>
-                                                <span class="stat-value">+0</span>
-                                            </div>
-                                        </div>
                                     </div>
-
-                                    <div class="charm-slot">
+                                    <div class="charm-slot" data-slot="2">
                                         <div class="slot-header">
                                             <span class="slot-title" data-i18n="charmSlot">Charm Slot</span>
                                             <span class="slot-number">2</span>
                                         </div>
                                         <div class="slot-controls">
                                             <div class="form-group">
-                                                <label class="form-label" data-i18n="fromLevel">From Level</label>
+                                                <label class="form-label" data-i18n="fromLevel">From</label>
                                                 <div class="dropdown">
                                                     <button type="button" class="dropdown-toggle">
-                                                        <span class="dropdown-text">1</span>
+                                                        <span class="dropdown-text">0</span>
                                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                             <path d="M6 9l6 6 6-6"/>
                                                         </svg>
@@ -582,10 +508,10 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="form-label" data-i18n="toLevel">To Level</label>
+                                                <label class="form-label" data-i18n="toLevel">To</label>
                                                 <div class="dropdown">
                                                     <button type="button" class="dropdown-toggle">
-                                                        <span class="dropdown-text">2</span>
+                                                        <span class="dropdown-text">0</span>
                                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                             <path d="M6 9l6 6 6-6"/>
                                                         </svg>
@@ -594,29 +520,18 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="stat-display">
-                                            <div class="stat-item">
-                                                <span class="stat-label" data-i18n="statBonus">Stat Bonus:</span>
-                                                <span class="stat-value">+0.00%</span>
-                                            </div>
-                                            <div class="stat-item">
-                                                <span class="stat-label" data-i18n="powerGained">Power:</span>
-                                                <span class="stat-value">+0</span>
-                                            </div>
-                                        </div>
                                     </div>
-
-                                    <div class="charm-slot">
+                                    <div class="charm-slot" data-slot="3">
                                         <div class="slot-header">
                                             <span class="slot-title" data-i18n="charmSlot">Charm Slot</span>
                                             <span class="slot-number">3</span>
                                         </div>
                                         <div class="slot-controls">
                                             <div class="form-group">
-                                                <label class="form-label" data-i18n="fromLevel">From Level</label>
+                                                <label class="form-label" data-i18n="fromLevel">From</label>
                                                 <div class="dropdown">
                                                     <button type="button" class="dropdown-toggle">
-                                                        <span class="dropdown-text">1</span>
+                                                        <span class="dropdown-text">0</span>
                                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                             <path d="M6 9l6 6 6-6"/>
                                                         </svg>
@@ -625,26 +540,16 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="form-label" data-i18n="toLevel">To Level</label>
+                                                <label class="form-label" data-i18n="toLevel">To</label>
                                                 <div class="dropdown">
                                                     <button type="button" class="dropdown-toggle">
-                                                        <span class="dropdown-text">2</span>
+                                                        <span class="dropdown-text">0</span>
                                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                             <path d="M6 9l6 6 6-6"/>
                                                         </svg>
                                                     </button>
                                                     <div class="dropdown-menu"></div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="stat-display">
-                                            <div class="stat-item">
-                                                <span class="stat-label" data-i18n="statBonus">Stat Bonus:</span>
-                                                <span class="stat-value">+0.00%</span>
-                                            </div>
-                                            <div class="stat-item">
-                                                <span class="stat-label" data-i18n="powerGained">Power:</span>
-                                                <span class="stat-value">+0</span>
                                             </div>
                                         </div>
                                     </div>
@@ -666,7 +571,7 @@
                                                 <label class="form-label-small" data-i18n="setPieceFrom">Set From</label>
                                                 <div class="dropdown piece-from-dropdown">
                                                     <button type="button" class="dropdown-toggle">
-                                                        <span class="dropdown-text">1</span>
+                                                        <span class="dropdown-text">0</span>
                                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                             <path d="M6 9l6 6 6-6"/>
                                                         </svg>
@@ -678,7 +583,7 @@
                                                 <label class="form-label-small" data-i18n="setPieceTo">Set To</label>
                                                 <div class="dropdown piece-to-dropdown">
                                                     <button type="button" class="dropdown-toggle">
-                                                        <span class="dropdown-text">2</span>
+                                                        <span class="dropdown-text">0</span>
                                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                             <path d="M6 9l6 6 6-6"/>
                                                         </svg>
@@ -691,17 +596,17 @@
                                 </div>
                                 
                                 <div class="charm-slots">
-                                    <div class="charm-slot">
+                                    <div class="charm-slot" data-slot="1">
                                         <div class="slot-header">
                                             <span class="slot-title" data-i18n="charmSlot">Charm Slot</span>
                                             <span class="slot-number">1</span>
                                         </div>
                                         <div class="slot-controls">
                                             <div class="form-group">
-                                                <label class="form-label" data-i18n="fromLevel">From Level</label>
+                                                <label class="form-label" data-i18n="fromLevel">From</label>
                                                 <div class="dropdown">
                                                     <button type="button" class="dropdown-toggle">
-                                                        <span class="dropdown-text">1</span>
+                                                        <span class="dropdown-text">0</span>
                                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                             <path d="M6 9l6 6 6-6"/>
                                                         </svg>
@@ -710,10 +615,10 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="form-label" data-i18n="toLevel">To Level</label>
+                                                <label class="form-label" data-i18n="toLevel">To</label>
                                                 <div class="dropdown">
                                                     <button type="button" class="dropdown-toggle">
-                                                        <span class="dropdown-text">2</span>
+                                                        <span class="dropdown-text">0</span>
                                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                             <path d="M6 9l6 6 6-6"/>
                                                         </svg>
@@ -722,29 +627,18 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="stat-display">
-                                            <div class="stat-item">
-                                                <span class="stat-label" data-i18n="statBonus">Stat Bonus:</span>
-                                                <span class="stat-value">+0.00%</span>
-                                            </div>
-                                            <div class="stat-item">
-                                                <span class="stat-label" data-i18n="powerGained">Power:</span>
-                                                <span class="stat-value">+0</span>
-                                            </div>
-                                        </div>
                                     </div>
-
-                                    <div class="charm-slot">
+                                    <div class="charm-slot" data-slot="2">
                                         <div class="slot-header">
                                             <span class="slot-title" data-i18n="charmSlot">Charm Slot</span>
                                             <span class="slot-number">2</span>
                                         </div>
                                         <div class="slot-controls">
                                             <div class="form-group">
-                                                <label class="form-label" data-i18n="fromLevel">From Level</label>
+                                                <label class="form-label" data-i18n="fromLevel">From</label>
                                                 <div class="dropdown">
                                                     <button type="button" class="dropdown-toggle">
-                                                        <span class="dropdown-text">1</span>
+                                                        <span class="dropdown-text">0</span>
                                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                             <path d="M6 9l6 6 6-6"/>
                                                         </svg>
@@ -753,10 +647,10 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="form-label" data-i18n="toLevel">To Level</label>
+                                                <label class="form-label" data-i18n="toLevel">To</label>
                                                 <div class="dropdown">
                                                     <button type="button" class="dropdown-toggle">
-                                                        <span class="dropdown-text">2</span>
+                                                        <span class="dropdown-text">0</span>
                                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                             <path d="M6 9l6 6 6-6"/>
                                                         </svg>
@@ -765,29 +659,18 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="stat-display">
-                                            <div class="stat-item">
-                                                <span class="stat-label" data-i18n="statBonus">Stat Bonus:</span>
-                                                <span class="stat-value">+0.00%</span>
-                                            </div>
-                                            <div class="stat-item">
-                                                <span class="stat-label" data-i18n="powerGained">Power:</span>
-                                                <span class="stat-value">+0</span>
-                                            </div>
-                                        </div>
                                     </div>
-
-                                    <div class="charm-slot">
+                                    <div class="charm-slot" data-slot="3">
                                         <div class="slot-header">
                                             <span class="slot-title" data-i18n="charmSlot">Charm Slot</span>
                                             <span class="slot-number">3</span>
                                         </div>
                                         <div class="slot-controls">
                                             <div class="form-group">
-                                                <label class="form-label" data-i18n="fromLevel">From Level</label>
+                                                <label class="form-label" data-i18n="fromLevel">From</label>
                                                 <div class="dropdown">
                                                     <button type="button" class="dropdown-toggle">
-                                                        <span class="dropdown-text">1</span>
+                                                        <span class="dropdown-text">0</span>
                                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                             <path d="M6 9l6 6 6-6"/>
                                                         </svg>
@@ -796,10 +679,10 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="form-label" data-i18n="toLevel">To Level</label>
+                                                <label class="form-label" data-i18n="toLevel">To</label>
                                                 <div class="dropdown">
                                                     <button type="button" class="dropdown-toggle">
-                                                        <span class="dropdown-text">2</span>
+                                                        <span class="dropdown-text">0</span>
                                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                             <path d="M6 9l6 6 6-6"/>
                                                         </svg>
@@ -808,20 +691,9 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="stat-display">
-                                            <div class="stat-item">
-                                                <span class="stat-label" data-i18n="statBonus">Stat Bonus:</span>
-                                                <span class="stat-value">+0.00%</span>
-                                            </div>
-                                            <div class="stat-item">
-                                                <span class="stat-label" data-i18n="powerGained">Power:</span>
-                                                <span class="stat-value">+0</span>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
-
                             <div class="gear-card card" data-piece="ring">
                                 <div class="gear-header">
                                     <div class="gear-title">
@@ -837,7 +709,7 @@
                                                 <label class="form-label-small" data-i18n="setPieceFrom">Set From</label>
                                                 <div class="dropdown piece-from-dropdown">
                                                     <button type="button" class="dropdown-toggle">
-                                                        <span class="dropdown-text">1</span>
+                                                        <span class="dropdown-text">0</span>
                                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                             <path d="M6 9l6 6 6-6"/>
                                                         </svg>
@@ -849,7 +721,7 @@
                                                 <label class="form-label-small" data-i18n="setPieceTo">Set To</label>
                                                 <div class="dropdown piece-to-dropdown">
                                                     <button type="button" class="dropdown-toggle">
-                                                        <span class="dropdown-text">2</span>
+                                                        <span class="dropdown-text">0</span>
                                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                             <path d="M6 9l6 6 6-6"/>
                                                         </svg>
@@ -862,17 +734,17 @@
                                 </div>
                                 
                                 <div class="charm-slots">
-                                    <div class="charm-slot">
+                                    <div class="charm-slot" data-slot="1">
                                         <div class="slot-header">
                                             <span class="slot-title" data-i18n="charmSlot">Charm Slot</span>
                                             <span class="slot-number">1</span>
                                         </div>
                                         <div class="slot-controls">
                                             <div class="form-group">
-                                                <label class="form-label" data-i18n="fromLevel">From Level</label>
+                                                <label class="form-label" data-i18n="fromLevel">From</label>
                                                 <div class="dropdown">
                                                     <button type="button" class="dropdown-toggle">
-                                                        <span class="dropdown-text">1</span>
+                                                        <span class="dropdown-text">0</span>
                                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                             <path d="M6 9l6 6 6-6"/>
                                                         </svg>
@@ -881,10 +753,10 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="form-label" data-i18n="toLevel">To Level</label>
+                                                <label class="form-label" data-i18n="toLevel">To</label>
                                                 <div class="dropdown">
                                                     <button type="button" class="dropdown-toggle">
-                                                        <span class="dropdown-text">2</span>
+                                                        <span class="dropdown-text">0</span>
                                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                             <path d="M6 9l6 6 6-6"/>
                                                         </svg>
@@ -893,29 +765,18 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="stat-display">
-                                            <div class="stat-item">
-                                                <span class="stat-label" data-i18n="statBonus">Stat Bonus:</span>
-                                                <span class="stat-value">+0.00%</span>
-                                            </div>
-                                            <div class="stat-item">
-                                                <span class="stat-label" data-i18n="powerGained">Power:</span>
-                                                <span class="stat-value">+0</span>
-                                            </div>
-                                        </div>
                                     </div>
-
-                                    <div class="charm-slot">
+                                    <div class="charm-slot" data-slot="2">
                                         <div class="slot-header">
                                             <span class="slot-title" data-i18n="charmSlot">Charm Slot</span>
                                             <span class="slot-number">2</span>
                                         </div>
                                         <div class="slot-controls">
                                             <div class="form-group">
-                                                <label class="form-label" data-i18n="fromLevel">From Level</label>
+                                                <label class="form-label" data-i18n="fromLevel">From</label>
                                                 <div class="dropdown">
                                                     <button type="button" class="dropdown-toggle">
-                                                        <span class="dropdown-text">1</span>
+                                                        <span class="dropdown-text">0</span>
                                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                             <path d="M6 9l6 6 6-6"/>
                                                         </svg>
@@ -924,10 +785,10 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="form-label" data-i18n="toLevel">To Level</label>
+                                                <label class="form-label" data-i18n="toLevel">To</label>
                                                 <div class="dropdown">
                                                     <button type="button" class="dropdown-toggle">
-                                                        <span class="dropdown-text">2</span>
+                                                        <span class="dropdown-text">0</span>
                                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                             <path d="M6 9l6 6 6-6"/>
                                                         </svg>
@@ -936,29 +797,18 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="stat-display">
-                                            <div class="stat-item">
-                                                <span class="stat-label" data-i18n="statBonus">Stat Bonus:</span>
-                                                <span class="stat-value">+0.00%</span>
-                                            </div>
-                                            <div class="stat-item">
-                                                <span class="stat-label" data-i18n="powerGained">Power:</span>
-                                                <span class="stat-value">+0</span>
-                                            </div>
-                                        </div>
                                     </div>
-
-                                    <div class="charm-slot">
+                                    <div class="charm-slot" data-slot="3">
                                         <div class="slot-header">
                                             <span class="slot-title" data-i18n="charmSlot">Charm Slot</span>
                                             <span class="slot-number">3</span>
                                         </div>
                                         <div class="slot-controls">
                                             <div class="form-group">
-                                                <label class="form-label" data-i18n="fromLevel">From Level</label>
+                                                <label class="form-label" data-i18n="fromLevel">From</label>
                                                 <div class="dropdown">
                                                     <button type="button" class="dropdown-toggle">
-                                                        <span class="dropdown-text">1</span>
+                                                        <span class="dropdown-text">0</span>
                                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                             <path d="M6 9l6 6 6-6"/>
                                                         </svg>
@@ -967,26 +817,16 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="form-label" data-i18n="toLevel">To Level</label>
+                                                <label class="form-label" data-i18n="toLevel">To</label>
                                                 <div class="dropdown">
                                                     <button type="button" class="dropdown-toggle">
-                                                        <span class="dropdown-text">2</span>
+                                                        <span class="dropdown-text">0</span>
                                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                             <path d="M6 9l6 6 6-6"/>
                                                         </svg>
                                                     </button>
                                                     <div class="dropdown-menu"></div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="stat-display">
-                                            <div class="stat-item">
-                                                <span class="stat-label" data-i18n="statBonus">Stat Bonus:</span>
-                                                <span class="stat-value">+0.00%</span>
-                                            </div>
-                                            <div class="stat-item">
-                                                <span class="stat-label" data-i18n="powerGained">Power:</span>
-                                                <span class="stat-value">+0</span>
                                             </div>
                                         </div>
                                     </div>
@@ -1008,7 +848,7 @@
                                                 <label class="form-label-small" data-i18n="setPieceFrom">Set From</label>
                                                 <div class="dropdown piece-from-dropdown">
                                                     <button type="button" class="dropdown-toggle">
-                                                        <span class="dropdown-text">1</span>
+                                                        <span class="dropdown-text">0</span>
                                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                             <path d="M6 9l6 6 6-6"/>
                                                         </svg>
@@ -1020,9 +860,7 @@
                                                 <label class="form-label-small" data-i18n="setPieceTo">Set To</label>
                                                 <div class="dropdown piece-to-dropdown">
                                                     <button type="button" class="dropdown-toggle">
-                                                        <span class="dropdown-text">2</span>
-                                                        <class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                            <path d="M6 9l6 6 6-6"/>
+                                                        <span class="dropdown-text">0</span>
                                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                             <path d="M6 9l6 6 6-6"/>
                                                         </svg>
@@ -1035,17 +873,17 @@
                                 </div>
                                 
                                 <div class="charm-slots">
-                                    <div class="charm-slot">
+                                    <div class="charm-slot" data-slot="1">
                                         <div class="slot-header">
                                             <span class="slot-title" data-i18n="charmSlot">Charm Slot</span>
                                             <span class="slot-number">1</span>
                                         </div>
                                         <div class="slot-controls">
                                             <div class="form-group">
-                                                <label class="form-label" data-i18n="fromLevel">From Level</label>
+                                                <label class="form-label" data-i18n="fromLevel">From</label>
                                                 <div class="dropdown">
                                                     <button type="button" class="dropdown-toggle">
-                                                        <span class="dropdown-text">1</span>
+                                                        <span class="dropdown-text">0</span>
                                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                             <path d="M6 9l6 6 6-6"/>
                                                         </svg>
@@ -1054,10 +892,10 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="form-label" data-i18n="toLevel">To Level</label>
+                                                <label class="form-label" data-i18n="toLevel">To</label>
                                                 <div class="dropdown">
                                                     <button type="button" class="dropdown-toggle">
-                                                        <span class="dropdown-text">2</span>
+                                                        <span class="dropdown-text">0</span>
                                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                             <path d="M6 9l6 6 6-6"/>
                                                         </svg>
@@ -1066,29 +904,18 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="stat-display">
-                                            <div class="stat-item">
-                                                <span class="stat-label" data-i18n="statBonus">Stat Bonus:</span>
-                                                <span class="stat-value">+0.00%</span>
-                                            </div>
-                                            <div class="stat-item">
-                                                <span class="stat-label" data-i18n="powerGained">Power:</span>
-                                                <span class="stat-value">+0</span>
-                                            </div>
-                                        </div>
                                     </div>
-
-                                    <div class="charm-slot">
+                                    <div class="charm-slot" data-slot="2">
                                         <div class="slot-header">
                                             <span class="slot-title" data-i18n="charmSlot">Charm Slot</span>
                                             <span class="slot-number">2</span>
                                         </div>
                                         <div class="slot-controls">
                                             <div class="form-group">
-                                                <label class="form-label" data-i18n="fromLevel">From Level</label>
+                                                <label class="form-label" data-i18n="fromLevel">From</label>
                                                 <div class="dropdown">
                                                     <button type="button" class="dropdown-toggle">
-                                                        <span class="dropdown-text">1</span>
+                                                        <span class="dropdown-text">0</span>
                                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                             <path d="M6 9l6 6 6-6"/>
                                                         </svg>
@@ -1097,10 +924,10 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="form-label" data-i18n="toLevel">To Level</label>
+                                                <label class="form-label" data-i18n="toLevel">To</label>
                                                 <div class="dropdown">
                                                     <button type="button" class="dropdown-toggle">
-                                                        <span class="dropdown-text">2</span>
+                                                        <span class="dropdown-text">0</span>
                                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                             <path d="M6 9l6 6 6-6"/>
                                                         </svg>
@@ -1109,29 +936,18 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="stat-display">
-                                            <div class="stat-item">
-                                                <span class="stat-label" data-i18n="statBonus">Stat Bonus:</span>
-                                                <span class="stat-value">+0.00%</span>
-                                            </div>
-                                            <div class="stat-item">
-                                                <span class="stat-label" data-i18n="powerGained">Power:</span>
-                                                <span class="stat-value">+0</span>
-                                            </div>
-                                        </div>
                                     </div>
-
-                                    <div class="charm-slot">
+                                    <div class="charm-slot" data-slot="3">
                                         <div class="slot-header">
                                             <span class="slot-title" data-i18n="charmSlot">Charm Slot</span>
                                             <span class="slot-number">3</span>
                                         </div>
                                         <div class="slot-controls">
                                             <div class="form-group">
-                                                <label class="form-label" data-i18n="fromLevel">From Level</label>
+                                                <label class="form-label" data-i18n="fromLevel">From</label>
                                                 <div class="dropdown">
                                                     <button type="button" class="dropdown-toggle">
-                                                        <span class="dropdown-text">1</span>
+                                                        <span class="dropdown-text">0</span>
                                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                             <path d="M6 9l6 6 6-6"/>
                                                         </svg>
@@ -1140,26 +956,16 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="form-label" data-i18n="toLevel">To Level</label>
+                                                <label class="form-label" data-i18n="toLevel">To</label>
                                                 <div class="dropdown">
                                                     <button type="button" class="dropdown-toggle">
-                                                        <span class="dropdown-text">2</span>
+                                                        <span class="dropdown-text">0</span>
                                                         <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                             <path d="M6 9l6 6 6-6"/>
                                                         </svg>
                                                     </button>
                                                     <div class="dropdown-menu"></div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="stat-display">
-                                            <div class="stat-item">
-                                                <span class="stat-label" data-i18n="statBonus">Stat Bonus:</span>
-                                                <span class="stat-value">+0.00%</span>
-                                            </div>
-                                            <div class="stat-item">
-                                                <span class="stat-label" data-i18n="powerGained">Power:</span>
-                                                <span class="stat-value">+0</span>
                                             </div>
                                         </div>
                                     </div>
