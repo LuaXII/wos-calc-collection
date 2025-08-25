@@ -30,7 +30,6 @@
     align-items: start;
 }
 
-/* Sidebar */
 .sidebar {
     display: flex;
     flex-direction: column;
@@ -100,7 +99,6 @@
     gap: 1rem;
 }
 
-/* Gear form */
 .gear-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -110,11 +108,14 @@
 
 .gear-card {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    z-index: 1;
 }
 
 .gear-card:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-lg);
+    z-index: 2;
 }
 
 .gear-card.disabled {
@@ -179,6 +180,39 @@
     gap: 1rem;
 }
 
+.gear-controls .dropdown {
+    position: relative;
+}
+
+.gear-controls .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    display: none;
+    margin-top: 0.25rem;
+}
+
+body.dark-theme .gear-controls .dropdown-menu {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+
+.gear-controls .dropdown.show {
+    z-index: 100;
+}
+
+.gear-controls .dropdown-menu.show {
+    display: block;
+    animation: dropdownSlideIn 0.2s ease-out;
+}
+
 .calculate-btn {
     width: 100%;
     padding: 1rem 1.5rem;
@@ -197,7 +231,6 @@
     height: 1.125rem;
 }
 
-/* Results section */
 .results-section {
     margin-top: 2rem;
 }
@@ -324,7 +357,6 @@
     line-height: 1.4;
 }
 
-/* SvS Points Card Styling */
 .svs-points-card {
     background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
     border: 1px solid var(--accent);
@@ -354,7 +386,6 @@
     font-weight: 700;
 }
 
-/* Responsive design */
 @media (max-width: 1200px) {
     .calculator-layout {
         grid-template-columns: 300px 1fr;
