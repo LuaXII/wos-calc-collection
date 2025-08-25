@@ -55,8 +55,8 @@ class CharmsCalculator {
             const allFromDropdown = new Dropdown(allFromDropdownEl, { items: levelOptions });
             const allToDropdown = new Dropdown(allToDropdownEl, { items: levelOptions });
 
-            allFromDropdown.setValue('1');
-            allToDropdown.setValue('2');
+            allFromDropdown.setValue('0');
+            allToDropdown.setValue('0');
 
             this.dropdowns.set('all-from', allFromDropdown);
             this.dropdowns.set('all-to', allToDropdown);
@@ -73,30 +73,32 @@ class CharmsCalculator {
                 const pieceFromDropdown = new Dropdown(pieceFromDropdownEl, { items: levelOptions });
                 const pieceToDropdown = new Dropdown(pieceToDropdownEl, { items: levelOptions });
                 
-                pieceFromDropdown.setValue('1');
-                pieceToDropdown.setValue('2');
+                pieceFromDropdown.setValue('0');
+                pieceToDropdown.setValue('0');
                 
                 this.dropdowns.set(`${piece}-piece-from`, pieceFromDropdown);
                 this.dropdowns.set(`${piece}-piece-to`, pieceToDropdown);
             }
 
-            const charmSlots = card.querySelectorAll('.charm-slot');
-            charmSlots.forEach((slot, slotIndex) => {
-                const slotDropdowns = slot.querySelectorAll('.dropdown');
-                if (slotDropdowns.length >= 2) {
-                    const fromDropdownEl = slotDropdowns[0];
-                    const toDropdownEl = slotDropdowns[1];
+            for (let slot = 1; slot <= 3; slot++) {
+                const slotContainer = card.querySelector(`[data-slot="${slot}"]`);
+                if (slotContainer) {
+                    const slotDropdowns = slotContainer.querySelectorAll('.dropdown');
+                    if (slotDropdowns.length >= 2) {
+                        const fromDropdownEl = slotDropdowns[0];
+                        const toDropdownEl = slotDropdowns[1];
 
-                    const fromDropdown = new Dropdown(fromDropdownEl, { items: levelOptions });
-                    const toDropdown = new Dropdown(toDropdownEl, { items: levelOptions });
-                    
-                    fromDropdown.setValue('1');
-                    toDropdown.setValue('2');
+                        const fromDropdown = new Dropdown(fromDropdownEl, { items: levelOptions });
+                        const toDropdown = new Dropdown(toDropdownEl, { items: levelOptions });
+                        
+                        fromDropdown.setValue('0');
+                        toDropdown.setValue('0');
 
-                    this.dropdowns.set(`${piece}-slot${slotIndex + 1}-from`, fromDropdown);
-                    this.dropdowns.set(`${piece}-slot${slotIndex + 1}-to`, toDropdown);
+                        this.dropdowns.set(`${piece}-slot${slot}-from`, fromDropdown);
+                        this.dropdowns.set(`${piece}-slot${slot}-to`, toDropdown);
+                    }
                 }
-            });
+            }
         });
     }
 
@@ -130,25 +132,6 @@ class CharmsCalculator {
                 pieceToDropdown.element.addEventListener('change', (e) => {
                     this.setPieceToLevels(piece, e.detail.value);
                 });
-            }
-        });
-
-        this.gearPieces.forEach(piece => {
-            for (let slot = 1; slot <= 3; slot++) {
-                const fromDropdown = this.dropdowns.get(`${piece}-slot${slot}-from`);
-                const toDropdown = this.dropdowns.get(`${piece}-slot${slot}-to`);
-                
-                if (fromDropdown) {
-                    fromDropdown.element.addEventListener('change', () => {
-                        this.updateSlotStats(piece, slot);
-                    });
-                }
-
-                if (toDropdown) {
-                    toDropdown.element.addEventListener('change', () => {
-                        this.updateSlotStats(piece, slot);
-                    });
-                }
             }
         });
 
@@ -204,7 +187,6 @@ class CharmsCalculator {
                 const slotFromDropdown = this.dropdowns.get(`${piece}-slot${slot}-from`);
                 if (slotFromDropdown) {
                     slotFromDropdown.setValue(value);
-                    this.updateSlotStats(piece, slot);
                 }
             }
         });
@@ -221,7 +203,6 @@ class CharmsCalculator {
                 const slotToDropdown = this.dropdowns.get(`${piece}-slot${slot}-to`);
                 if (slotToDropdown) {
                     slotToDropdown.setValue(value);
-                    this.updateSlotStats(piece, slot);
                 }
             }
         });
@@ -232,7 +213,6 @@ class CharmsCalculator {
             const slotFromDropdown = this.dropdowns.get(`${piece}-slot${slot}-from`);
             if (slotFromDropdown) {
                 slotFromDropdown.setValue(value);
-                this.updateSlotStats(piece, slot);
             }
         }
     }
@@ -242,42 +222,7 @@ class CharmsCalculator {
             const slotToDropdown = this.dropdowns.get(`${piece}-slot${slot}-to`);
             if (slotToDropdown) {
                 slotToDropdown.setValue(value);
-                this.updateSlotStats(piece, slot);
             }
-        }
-    }
-
-    updateSlotStats(piece, slot) {
-        const fromDropdown = this.dropdowns.get(`${piece}-slot${slot}-from`);
-        const toDropdown = this.dropdowns.get(`${piece}-slot${slot}-to`);
-        
-        if (!fromDropdown || !toDropdown) return;
-
-        const fromLevel = parseInt(fromDropdown.getValue() || '0');
-        const toLevel = parseInt(toDropdown.getValue() || '0');
-        
-        const card = document.querySelector(`.gear-card[data-piece="${piece}"]`);
-        if (!card) return;
-        
-        const charmSlots = card.querySelectorAll('.charm-slot');
-        const slotElement = charmSlots[slot - 1];
-        if (!slotElement) return;
-        
-        const statValues = slotElement.querySelectorAll('.stat-value');
-        if (statValues.length >= 2) {
-            let statBonus = 0;
-            let powerGain = 0;
-            
-            if (toLevel > fromLevel && toLevel > 0) {
-                const fromStats = CHARM_STATS[fromLevel] || { statBonus: 0, power: 0 };
-                const toStats = CHARM_STATS[toLevel] || { statBonus: 0, power: 0 };
-                
-                statBonus = toStats.statBonus - fromStats.statBonus;
-                powerGain = toStats.power - fromStats.power;
-            }
-            
-            statValues[0].textContent = `+${statBonus.toFixed(2)}%`;
-            statValues[1].textContent = `+${formatNumber(powerGain)}`;
         }
     }
 
@@ -295,6 +240,7 @@ class CharmsCalculator {
         const totalCost = { guide: 0, design: 0, secret: 0 };
         let totalStatBonus = 0;
         let totalPowerGain = 0;
+        let totalSvsPoints = 0;
         let selectedSlots = 0;
         let hasErrors = false;
         const errors = [];
@@ -334,6 +280,11 @@ class CharmsCalculator {
                         totalCost.design += upgradeCost.design;
                         totalCost.secret += upgradeCost.secret;
                     }
+                    
+                    const svsPoints = CHARM_SVS_POINTS[level];
+                    if (svsPoints) {
+                        totalSvsPoints += svsPoints;
+                    }
                 }
 
                 const fromStats = CHARM_STATS[fromLevel] || { statBonus: 0, power: 0 };
@@ -362,7 +313,7 @@ class CharmsCalculator {
         }
 
         const inventory = this.getInventoryAmounts();
-        this.displayResults(totalCost, inventory, slotsWithUpgrades, totalStatBonus, totalPowerGain);
+        this.displayResults(totalCost, inventory, slotsWithUpgrades, totalStatBonus, totalPowerGain, totalSvsPoints);
     }
 
     countSlotsWithUpgrades() {
@@ -388,7 +339,7 @@ class CharmsCalculator {
         return count;
     }
 
-    displayResults(totalCost, inventory, selectedSlots, totalStatBonus, totalPowerGain) {
+    displayResults(totalCost, inventory, selectedSlots, totalStatBonus, totalPowerGain, totalSvsPoints) {
         const t = window.languageManager.getCurrentTranslations();
         const resultsSection = document.getElementById('charms-results');
         
@@ -407,7 +358,7 @@ class CharmsCalculator {
             return `
                 <div class="result-card">
                     <div class="result-card-header">
-                        <h4 class="result-card-title">${materialData.name}</h4>
+                        <h4 class="result-card-title">${t[material] || materialData.name}</h4>
                     </div>
                     <div class="result-needed ${sufficient ? 'sufficient' : 'insufficient'}">
                         <div class="result-icon" data-charm-material-icon="${material}">${materialData.fallback}</div>
@@ -458,15 +409,42 @@ class CharmsCalculator {
             </div>
         ` : '';
 
+        const svsPointsCard = totalSvsPoints > 0 ? `
+            <div class="result-card svs-points-card">
+                <div class="result-card-header">
+                    <h4 class="result-card-title">${t.svsPointsGained || 'SvS Points Gained'}</h4>
+                </div>
+                <div class="result-needed sufficient">
+                    <div class="result-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+                        </svg>
+                    </div>
+                    <div class="result-info">
+                        <div class="result-amount sufficient">
+                            +${formatNumber(totalSvsPoints)}
+                        </div>
+                        <div class="result-status">
+                            ${t.totalSvsPoints || 'Total SvS Points'}
+                        </div>
+                        <div class="result-breakdown">
+                            ${t.svsPointsGained || 'SvS Points gained from charm upgrades'}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        ` : '';
+
         resultsSection.innerHTML = `
             <div class="results-container">
                 <div class="results-header">
                     <h3 class="results-title">${t.upgradeAnalysis || 'Upgrade Analysis'}</h3>
-                    <p class="results-subtitle">${t.materialsNeededFor || 'Materials needed for'} ${selectedSlots} ${t.selectedPieces || 'selected charm slot(s)'}</p>
+                    <p class="results-subtitle">${t.materialsNeededFor || 'Materials needed for'} ${selectedSlots} ${t.selectedSlots || 'selected charm slot(s)'}</p>
                 </div>
                 <div class="results-grid">
                     ${resultCards}
                     ${powerStatsCard}
+                    ${svsPointsCard}
                 </div>
             </div>
         `;
@@ -499,10 +477,9 @@ class CharmsCalculator {
         if (card) {
             card.classList.add('error');
             
-            const charmSlots = card.querySelectorAll('.charm-slot');
-            const slotElement = charmSlots[slot - 1];
-            if (slotElement) {
-                slotElement.classList.add('error');
+            const slotContainer = card.querySelector(`[data-slot="${slot}"]`);
+            if (slotContainer) {
+                slotContainer.classList.add('error');
             }
         }
     }
@@ -552,12 +529,6 @@ class CharmsCalculator {
                 dropdown.setValue(savedValue);
             }
         });
-
-        this.gearPieces.forEach(piece => {
-            for (let slot = 1; slot <= 3; slot++) {
-                this.updateSlotStats(piece, slot);
-            }
-        });
     }
 
     updateContent(translations) {
@@ -587,6 +558,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('• 6 Gear pieces with 3 charm slots each');
         console.log('• Levels 0-16 with upgrade costs');
         console.log('• Real-time stat and power calculations');
+        console.log('• SvS Points calculation');
         console.log('• Multi-language support');
         console.log('Keyboard shortcuts:');
         console.log('• Ctrl/Cmd + Enter: Calculate');
