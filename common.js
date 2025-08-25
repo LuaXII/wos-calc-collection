@@ -112,6 +112,26 @@ const CHARM_STATS = [
     { statBonus: 100.00, power: 1940000 }
 ];
 
+const CHARM_SVS_POINTS = [
+    0,
+    625,
+    1250,
+    3125,
+    8750,
+    11250,
+    12500,
+    12500,
+    13000,
+    14000,
+    15000,
+    16000,
+    17000,
+    18000,
+    19000, 
+    20000, 
+    21000 
+];
+
 const GEAR_TIERS = [
     { name: "", ingot: 0, potion: 0, scroll: 0, amber: 0, svsPoints: 0 },
     { name: "Uncommon", ingot: 1500, potion: 15, scroll: 0, amber: 0, svsPoints: 1125 },
@@ -220,6 +240,8 @@ const TRANSLATIONS = {
         gameId: "Game ID",
         pageTitle: "Chief Gear Calculator",
         pageSubtitle: "Calculate materials needed to upgrade your chief gear",
+        charmsPageTitle: "Chief Charms Calculator",
+        charmsPageSubtitle: "Calculate materials needed to upgrade your chief charms",
         currentInventory: "Current Inventory",
         quickSetAll: "Quick Set All",
         currentLevel: "Current Level",
@@ -250,18 +272,24 @@ const TRANSLATIONS = {
         selectAtLeastOnePiece: "Please select at least one gear piece to calculate upgrade costs.",
         svsPointsGained: "SvS Points Gained",
         totalSvsPoints: "Total SvS Points",
-        charmsPageTitle: "Chief Charms Calculator",
-        charmsPageSubtitle: "Calculate materials needed to upgrade your chief charms",
         charmSlot: "Charm Slot",
         fromLevel: "From Level",
         toLevel: "To Level",
         setAllFrom: "Set All From",
         setAllTo: "Set All To",
-        setPieceFrom: "Set Piece From",
-        setPieceTo: "Set Piece To",
+        setPieceFrom: "Set From",
+        setPieceTo: "Set To",
         statBonus: "Stat Bonus",
         totalPower: "Total Power",
-        powerGained: "Power Gained"
+        powerGained: "Power Gained",
+        selectedSlots: "selected charm slot(s)",
+        guide: "Charm Guide",
+        design: "Charm Design",
+        secret: "Charm Secret",
+        ingot: "Hardened Alloy",
+        potion: "Polishing Solution",
+        scroll: "Design Plans",
+        amber: "Lunar Amber"
     },
     zh: {
         title: "白日求生计算器",
@@ -279,6 +307,8 @@ const TRANSLATIONS = {
         gameId: "游戏ID",
         pageTitle: "首领装备计算器",
         pageSubtitle: "计算升级首领装备所需的材料",
+        charmsPageTitle: "首领符咒计算器",
+        charmsPageSubtitle: "计算升级首领符咒所需的材料",
         currentInventory: "当前库存",
         quickSetAll: "快速设置全部",
         currentLevel: "当前等级",
@@ -309,8 +339,6 @@ const TRANSLATIONS = {
         selectAtLeastOnePiece: "请至少选择一件装备来计算升级费用。",
         svsPointsGained: "获得的SvS积分",
         totalSvsPoints: "总SvS积分",
-        charmsPageTitle: "首领符咒计算器",
-        charmsPageSubtitle: "计算升级首领符咒所需的材料",
         charmSlot: "符咒槽",
         fromLevel: "从等级",
         toLevel: "到等级",
@@ -320,7 +348,15 @@ const TRANSLATIONS = {
         setPieceTo: "设置装备到",
         statBonus: "属性加成",
         totalPower: "总战力",
-        powerGained: "获得战力"
+        powerGained: "获得战力",
+        selectedSlots: "选择的符咒槽",
+        guide: "符咒指南",
+        design: "符咒设计",
+        secret: "符咒秘籍",
+        ingot: "硬化合金",
+        potion: "抛光溶液",
+        scroll: "设计图纸",
+        amber: "月光琥珀"
     },
     ja: {
         title: "ホワイトアウト サバイバル 計算機",
@@ -335,7 +371,59 @@ const TRANSLATIONS = {
         comingSoon: "近日公開",
         supportTitle: "開発支援",
         supportDescription: "私の開発プロジェクトに貢献し支援したい場合は、下記のIDでギフトを送ることができます。",
-        gameId: "ゲーム ID"
+        gameId: "ゲーム ID",
+        pageTitle: "チーフギア計算機",
+        pageSubtitle: "チーフギアのアップグレードに必要な材料を計算",
+        charmsPageTitle: "チーフチャーム計算機",
+        charmsPageSubtitle: "チーフチャームのアップグレードに必要な材料を計算",
+        currentInventory: "現在の在庫",
+        quickSetAll: "すべて一括設定",
+        currentLevel: "現在のレベル",
+        desiredLevel: "目標レベル",
+        selectLevel: "レベルを選択...",
+        helmet: "ヘルメット",
+        chestplate: "チェストプレート",
+        pants: "パンツ",
+        watch: "時計",
+        ring: "リング",
+        staff: "スタッフ",
+        calculateMaterialsNeeded: "必要材料を計算",
+        upgradeAnalysis: "アップグレード分析",
+        materialsNeededFor: "必要材料",
+        selectedPieces: "選択されたピース",
+        sufficient: "✓ 十分",
+        needMore: "必要",
+        more: "もっと",
+        youHaveEnough: "十分お持ちです！",
+        additionalMaterialsNeeded: "追加で必要な材料",
+        totalRequired: "必要合計",
+        current: "現在",
+        surplus: "余剰",
+        missing: "不足",
+        desiredLevelRequired: "：目標レベルが必要です",
+        invalidDesiredLevel: "：無効な目標レベル",
+        desiredLevelMustBeHigher: "：目標レベルは現在のレベルより高い必要があります",
+        selectAtLeastOnePiece: "アップグレード費用を計算するには、少なくとも1つのギアピースを選択してください。",
+        svsPointsGained: "獲得SvSポイント",
+        totalSvsPoints: "合計SvSポイント",
+        charmSlot: "チャームスロット",
+        fromLevel: "開始レベル",
+        toLevel: "目標レベル",
+        setAllFrom: "全て開始設定",
+        setAllTo: "全て目標設定",
+        setPieceFrom: "装備開始設定",
+        setPieceTo: "装備目標設定",
+        statBonus: "ステータスボーナス",
+        totalPower: "総パワー",
+        powerGained: "獲得パワー",
+        selectedSlots: "選択されたチャームスロット",
+        guide: "チャームガイド",
+        design: "チャームデザイン",
+        secret: "チャームシークレット",
+        ingot: "硬化合金",
+        potion: "研磨溶液",
+        scroll: "設計図",
+        amber: "月光琥珀"
     },
     ko: {
         title: "화이트아웃 서바이벌 계산기",
@@ -350,7 +438,59 @@ const TRANSLATIONS = {
         comingSoon: "곧 출시",
         supportTitle: "개발 지원",
         supportDescription: "내 개발 프로젝트에 기여하고 지원하고 싶다면, 아래 ID로 선물을 보낼 수 있습니다.",
-        gameId: "게임 ID"
+        gameId: "게임 ID",
+        pageTitle: "치프 장비 계산기",
+        pageSubtitle: "치프 장비 업그레이드에 필요한 재료를 계산",
+        charmsPageTitle: "치프 부적 계산기",
+        charmsPageSubtitle: "치프 부적 업그레이드에 필요한 재료를 계산",
+        currentInventory: "현재 인벤토리",
+        quickSetAll: "모두 빠른 설정",
+        currentLevel: "현재 레벨",
+        desiredLevel: "목표 레벨",
+        selectLevel: "레벨 선택...",
+        helmet: "헬멧",
+        chestplate: "흉갑",
+        pants: "바지",
+        watch: "시계",
+        ring: "반지",
+        staff: "스태프",
+        calculateMaterialsNeeded: "필요 재료 계산",
+        upgradeAnalysis: "업그레이드 분석",
+        materialsNeededFor: "필요 재료",
+        selectedPieces: "선택된 피스",
+        sufficient: "✓ 충분함",
+        needMore: "필요",
+        more: "더",
+        youHaveEnough: "충분히 가지고 있습니다!",
+        additionalMaterialsNeeded: "추가로 필요한 재료",
+        totalRequired: "총 필요량",
+        current: "현재",
+        surplus: "잉여",
+        missing: "부족",
+        desiredLevelRequired: ": 목표 레벨이 필요합니다",
+        invalidDesiredLevel: ": 잘못된 목표 레벨",
+        desiredLevelMustBeHigher: ": 목표 레벨은 현재 레벨보다 높아야 합니다",
+        selectAtLeastOnePiece: "업그레이드 비용을 계산하려면 최소 하나의 장비를 선택하세요.",
+        svsPointsGained: "획득한 SvS 포인트",
+        totalSvsPoints: "총 SvS 포인트",
+        charmSlot: "부적 슬롯",
+        fromLevel: "시작 레벨",
+        toLevel: "목표 레벨",
+        setAllFrom: "모두 시작 설정",
+        setAllTo: "모두 목표 설정",
+        setPieceFrom: "장비 시작 설정",
+        setPieceTo: "장비 목표 설정",
+        statBonus: "스탯 보너스",
+        totalPower: "총 파워",
+        powerGained: "획득 파워",
+        selectedSlots: "선택된 부적 슬롯",
+        guide: "부적 가이드",
+        design: "부적 디자인",
+        secret: "부적 비밀",
+        ingot: "경화 합금",
+        potion: "연마 용액",
+        scroll: "설계도",
+        amber: "달빛 호박"
     },
     es: {
         title: "Calculadora Whiteout Survival",
@@ -365,7 +505,59 @@ const TRANSLATIONS = {
         comingSoon: "Próximamente",
         supportTitle: "Apoyar el Desarrollo",
         supportDescription: "Si quieres contribuir y apoyar mi proyecto de desarrollo. Puedes enviarme regalos usando mi ID de abajo.",
-        gameId: "ID del Juego"
+        gameId: "ID del Juego",
+        pageTitle: "Calculadora de Equipo del Jefe",
+        pageSubtitle: "Calcula los materiales necesarios para mejorar tu equipo de jefe",
+        charmsPageTitle: "Calculadora de Encantos del Jefe",
+        charmsPageSubtitle: "Calcula los materiales necesarios para mejorar tus encantos del jefe",
+        currentInventory: "Inventario Actual",
+        quickSetAll: "Configurar Todo Rápido",
+        currentLevel: "Nivel Actual",
+        desiredLevel: "Nivel Deseado",
+        selectLevel: "Seleccionar nivel...",
+        helmet: "Casco",
+        chestplate: "Pechera",
+        pants: "Pantalones",
+        watch: "Reloj",
+        ring: "Anillo",
+        staff: "Bastón",
+        calculateMaterialsNeeded: "Calcular Materiales Necesarios",
+        upgradeAnalysis: "Análisis de Mejora",
+        materialsNeededFor: "Materiales necesarios para",
+        selectedPieces: "pieza(s) seleccionada(s)",
+        sufficient: "✓ Suficiente",
+        needMore: "Necesita",
+        more: "más",
+        youHaveEnough: "¡Tienes suficiente!",
+        additionalMaterialsNeeded: "Materiales adicionales necesarios",
+        totalRequired: "Total Requerido",
+        current: "Actual",
+        surplus: "Excedente",
+        missing: "Faltante",
+        desiredLevelRequired: ": Se requiere nivel deseado",
+        invalidDesiredLevel: ": Nivel deseado inválido",
+        desiredLevelMustBeHigher: ": El nivel deseado debe ser mayor que el nivel actual",
+        selectAtLeastOnePiece: "Por favor selecciona al menos una pieza de equipo para calcular los costos de mejora.",
+        svsPointsGained: "Puntos SvS Ganados",
+        totalSvsPoints: "Puntos SvS Totales",
+        charmSlot: "Ranura de Encanto",
+        fromLevel: "Nivel Inicial",
+        toLevel: "Nivel Final",
+        setAllFrom: "Establecer Todo Desde",
+        setAllTo: "Establecer Todo Hasta",
+        setPieceFrom: "Establecer Pieza Desde",
+        setPieceTo: "Establecer Pieza Hasta",
+        statBonus: "Bonificación de Estadística",
+        totalPower: "Poder Total",
+        powerGained: "Poder Ganado",
+        selectedSlots: "ranuras de encanto seleccionadas",
+        guide: "Guía de Encanto",
+        design: "Diseño de Encanto",
+        secret: "Secreto de Encanto",
+        ingot: "Aleación Endurecida",
+        potion: "Solución Pulida",
+        scroll: "Planos de Diseño",
+        amber: "Ámbar Lunar"
     },
     fr: {
         title: "Calculateur Whiteout Survival",
@@ -380,7 +572,59 @@ const TRANSLATIONS = {
         comingSoon: "Bientôt Disponible",
         supportTitle: "Soutenir le Développement",
         supportDescription: "Si vous voulez contribuer et soutenir mon projet de développement. Vous pouvez m'envoyer des cadeaux en utilisant mon ID ci-dessous.",
-        gameId: "ID du Jeu"
+        gameId: "ID du Jeu",
+        pageTitle: "Calculateur d'Équipement du Chef",
+        pageSubtitle: "Calculez les matériaux nécessaires pour améliorer votre équipement de chef",
+        charmsPageTitle: "Calculateur de Charmes du Chef",
+        charmsPageSubtitle: "Calculez les matériaux nécessaires pour améliorer vos charmes de chef",
+        currentInventory: "Inventaire Actuel",
+        quickSetAll: "Configurer Tout Rapidement",
+        currentLevel: "Niveau Actuel",
+        desiredLevel: "Niveau Désiré",
+        selectLevel: "Sélectionner le niveau...",
+        helmet: "Casque",
+        chestplate: "Plastron",
+        pants: "Pantalon",
+        watch: "Montre",
+        ring: "Anneau",
+        staff: "Bâton",
+        calculateMaterialsNeeded: "Calculer les Matériaux Nécessaires",
+        upgradeAnalysis: "Analyse d'Amélioration",
+        materialsNeededFor: "Matériaux nécessaires pour",
+        selectedPieces: "pièce(s) sélectionnée(s)",
+        sufficient: "✓ Suffisant",
+        needMore: "Besoin de",
+        more: "plus",
+        youHaveEnough: "Vous en avez assez !",
+        additionalMaterialsNeeded: "Matériaux supplémentaires nécessaires",
+        totalRequired: "Total Requis",
+        current: "Actuel",
+        surplus: "Surplus",
+        missing: "Manquant",
+        desiredLevelRequired: ": Niveau désiré requis",
+        invalidDesiredLevel: ": Niveau désiré invalide",
+        desiredLevelMustBeHigher: ": Le niveau désiré doit être supérieur au niveau actuel",
+        selectAtLeastOnePiece: "Veuillez sélectionner au moins une pièce d'équipement pour calculer les coûts d'amélioration.",
+        svsPointsGained: "Points SvS Gagnés",
+        totalSvsPoints: "Points SvS Totaux",
+        charmSlot: "Emplacement de Charme",
+        fromLevel: "Niveau Initial",
+        toLevel: "Niveau Final",
+        setAllFrom: "Définir Tout Depuis",
+        setAllTo: "Définir Tout Jusqu'à",
+        setPieceFrom: "Définir Pièce Depuis",
+        setPieceTo: "Définir Pièce Jusqu'à",
+        statBonus: "Bonus de Statistique",
+        totalPower: "Puissance Totale",
+        powerGained: "Puissance Gagnée",
+        selectedSlots: "emplacements de charme sélectionnés",
+        guide: "Guide de Charme",
+        design: "Design de Charme",
+        secret: "Secret de Charme",
+        ingot: "Alliage Durci",
+        potion: "Solution de Polissage",
+        scroll: "Plans de Conception",
+        amber: "Ambre Lunaire"
     },
     de: {
         title: "Whiteout Survival Rechner",
@@ -395,7 +639,59 @@ const TRANSLATIONS = {
         comingSoon: "Demnächst",
         supportTitle: "Entwicklung Unterstützen",
         supportDescription: "Wenn Sie zu meinem Entwicklungsprojekt beitragen und es unterstützen möchten. Sie können mir Geschenke mit meiner unten stehenden ID senden.",
-        gameId: "Spiel-ID"
+        gameId: "Spiel-ID",
+        pageTitle: "Häuptlings-Ausrüstungsrechner",
+        pageSubtitle: "Berechnen Sie die Materialien, die für das Upgrade Ihrer Häuptlingsausrüstung benötigt werden",
+        charmsPageTitle: "Häuptlings-Amulette Rechner",
+        charmsPageSubtitle: "Berechnen Sie die Materialien, die für das Upgrade Ihrer Häuptlings-Amulette benötigt werden",
+        currentInventory: "Aktuelles Inventar",
+        quickSetAll: "Alles Schnell Einstellen",
+        currentLevel: "Aktueller Level",
+        desiredLevel: "Gewünschter Level",
+        selectLevel: "Level auswählen...",
+        helmet: "Helm",
+        chestplate: "Brustplatte",
+        pants: "Hose",
+        watch: "Uhr",
+        ring: "Ring",
+        staff: "Stab",
+        calculateMaterialsNeeded: "Benötigte Materialien Berechnen",
+        upgradeAnalysis: "Upgrade-Analyse",
+        materialsNeededFor: "Benötigte Materialien für",
+        selectedPieces: "ausgewählte(s) Teil(e)",
+        sufficient: "✓ Ausreichend",
+        needMore: "Benötigt",
+        more: "mehr",
+        youHaveEnough: "Sie haben genug!",
+        additionalMaterialsNeeded: "Zusätzlich benötigte Materialien",
+        totalRequired: "Insgesamt Erforderlich",
+        current: "Aktuell",
+        surplus: "Überschuss",
+        missing: "Fehlend",
+        desiredLevelRequired: ": Gewünschter Level erforderlich",
+        invalidDesiredLevel: ": Ungültiger gewünschter Level",
+        desiredLevelMustBeHigher: ": Gewünschter Level muss höher als aktueller Level sein",
+        selectAtLeastOnePiece: "Bitte wählen Sie mindestens ein Ausrüstungsteil aus, um Upgrade-Kosten zu berechnen.",
+        svsPointsGained: "Erhaltene SvS-Punkte",
+        totalSvsPoints: "Gesamt SvS-Punkte",
+        charmSlot: "Amulett-Slot",
+        fromLevel: "Anfangslevel",
+        toLevel: "Ziellevel",
+        setAllFrom: "Alle Von Setzen",
+        setAllTo: "Alle Bis Setzen",
+        setPieceFrom: "Teil Von Setzen",
+        setPieceTo: "Teil Bis Setzen",
+        statBonus: "Statistikbonus",
+        totalPower: "Gesamtleistung",
+        powerGained: "Erhaltene Leistung",
+        selectedSlots: "ausgewählte Amulett-Slots",
+        guide: "Amulett-Leitfaden",
+        design: "Amulett-Design",
+        secret: "Amulett-Geheimnis",
+        ingot: "Gehärtete Legierung",
+        potion: "Polierlösung",
+        scroll: "Designpläne",
+        amber: "Mondstein"
     },
     ru: {
         title: "Калькулятор Whiteout Survival",
@@ -410,28 +706,132 @@ const TRANSLATIONS = {
         comingSoon: "Скоро",
         supportTitle: "Поддержать Разработку",
         supportDescription: "Если вы хотите внести вклад и поддержать мой проект разработки. Вы можете отправить мне подарки, используя мой ID ниже.",
-        gameId: "ID Игры"
+        gameId: "ID Игры",
+        pageTitle: "Калькулятор Снаряжения Вождя",
+        pageSubtitle: "Рассчитайте материалы, необходимые для улучшения снаряжения вождя",
+        charmsPageTitle: "Калькулятор Амулетов Вождя",
+        charmsPageSubtitle: "Рассчитайте материалы, необходимые для улучшения амулетов вождя",
+        currentInventory: "Текущий Инвентарь",
+        quickSetAll: "Быстро Установить Все",
+        currentLevel: "Текущий Уровень",
+        desiredLevel: "Желаемый Уровень",
+        selectLevel: "Выберите уровень...",
+        helmet: "Шлем",
+        chestplate: "Нагрудник",
+        pants: "Штаны",
+        watch: "Часы",
+        ring: "Кольцо",
+        staff: "Посох",
+        calculateMaterialsNeeded: "Рассчитать Необходимые Материалы",
+        upgradeAnalysis: "Анализ Улучшений",
+        materialsNeededFor: "Необходимые материалы для",
+        selectedPieces: "выбранные предметы",
+        sufficient: "✓ Достаточно",
+        needMore: "Нужно",
+        more: "больше",
+        youHaveEnough: "У вас достаточно!",
+        additionalMaterialsNeeded: "Дополнительно необходимые материалы",
+        totalRequired: "Всего Требуется",
+        current: "Текущее",
+        surplus: "Излишек",
+        missing: "Недостает",
+        desiredLevelRequired: ": Требуется желаемый уровень",
+        invalidDesiredLevel: ": Недопустимый желаемый уровень",
+        desiredLevelMustBeHigher: ": Желаемый уровень должен быть выше текущего уровня",
+        selectAtLeastOnePiece: "Пожалуйста, выберите хотя бы один предмет снаряжения для расчета стоимости улучшений.",
+        svsPointsGained: "Полученные Очки SvS",
+        totalSvsPoints: "Общие Очки SvS",
+        charmSlot: "Слот Амулета",
+        fromLevel: "С Уровня",
+        toLevel: "До Уровня",
+        setAllFrom: "Установить Все С",
+        setAllTo: "Установить Все До",
+        setPieceFrom: "Установить Предмет С",
+        setPieceTo: "Установить Предмет До",
+        statBonus: "Бонус Характеристик",
+        totalPower: "Общая Мощность",
+        powerGained: "Полученная Мощность",
+        selectedSlots: "выбранные слоты амулетов",
+        guide: "Руководство по Амулетам",
+        design: "Дизайн Амулета",
+        secret: "Секрет Амулета",
+        ingot: "Закаленный Сплав",
+        potion: "Полировочный Раствор",
+        scroll: "Чертежи",
+        amber: "Лунный Янтарь"
     },
     pt: {
         title: "Calculadora Whiteout Survival",
         logoMain: "Whiteout Survival",
-        logoSub: "Conjunto de Calculadoras",
+        logoSub: "Suíte de Calculadoras",
         home: "Início",
         heroTitle: "Ferramentas de Melhoria do Jogo",
-        heroSubtitle: "Otimize sua jogabilidade com cálculos precisos",
+        heroSubtitle: "Otimize seu gameplay com cálculos precisos",
         chiefGear: "Equipamento do Chefe",
         chiefCharms: "Encantos do Chefe",
         available: "Disponível",
         comingSoon: "Em Breve",
         supportTitle: "Apoiar o Desenvolvimento",
-        supportDescription: "Se você quer contribuir e apoiar meu projeto de desenvolvimento. Você pode me enviar presentes usando meu ID abaixo.",
-        gameId: "ID do Jogo"
+        supportDescription: "Se você quiser contribuir e apoiar meu projeto de desenvolvimento. Você pode me enviar presentes usando meu ID abaixo.",
+        gameId: "ID do Jogo",
+        pageTitle: "Calculadora de Equipamento do Chefe",
+        pageSubtitle: "Calcule os materiais necessários para melhorar seu equipamento de chefe",
+        charmsPageTitle: "Calculadora de Encantos do Chefe",
+        charmsPageSubtitle: "Calcule os materiais necessários para melhorar seus encantos de chefe",
+        currentInventory: "Inventário Atual",
+        quickSetAll: "Definir Tudo Rapidamente",
+        currentLevel: "Nível Atual",
+        desiredLevel: "Nível Desejado",
+        selectLevel: "Selecionar nível...",
+        helmet: "Capacete",
+        chestplate: "Peitoral",
+        pants: "Calças",
+        watch: "Relógio",
+        ring: "Anel",
+        staff: "Cajado",
+        calculateMaterialsNeeded: "Calcular Materiais Necessários",
+        upgradeAnalysis: "Análise de Melhoria",
+        materialsNeededFor: "Materiais necessários para",
+        selectedPieces: "peça(s) selecionada(s)",
+        sufficient: "✓ Suficiente",
+        needMore: "Precisa",
+        more: "mais",
+        youHaveEnough: "Você tem o suficiente!",
+        additionalMaterialsNeeded: "Materiais adicionais necessários",
+        totalRequired: "Total Necessário",
+        current: "Atual",
+        surplus: "Excedente",
+        missing: "Faltando",
+        desiredLevelRequired: ": Nível desejado é obrigatório",
+        invalidDesiredLevel: ": Nível desejado inválido",
+        desiredLevelMustBeHigher: ": O nível desejado deve ser maior que o nível atual",
+        selectAtLeastOnePiece: "Por favor, selecione pelo menos uma peça de equipamento para calcular os custos de melhoria.",
+        svsPointsGained: "Pontos SvS Ganhos",
+        totalSvsPoints: "Pontos SvS Totais",
+        charmSlot: "Slot de Encanto",
+        fromLevel: "Nível Inicial",
+        toLevel: "Nível Final",
+        setAllFrom: "Definir Todos Desde",
+        setAllTo: "Definir Todos Até",
+        setPieceFrom: "Definir Peça Desde",
+        setPieceTo: "Definir Peça Até",
+        statBonus: "Bônus de Estatística",
+        totalPower: "Poder Total",
+        powerGained: "Poder Ganho",
+        selectedSlots: "slots de encanto selecionados",
+        guide: "Guia de Encanto",
+        design: "Design de Encanto",
+        secret: "Segredo de Encanto",
+        ingot: "Liga Endurecida",
+        potion: "Solução de Polimento",
+        scroll: "Planos de Design",
+        amber: "Âmbar Lunar"
     },
     it: {
         title: "Calcolatore Whiteout Survival",
         logoMain: "Whiteout Survival",
         logoSub: "Suite di Calcolatori",
-        home: "Casa",
+        home: "Home",
         heroTitle: "Strumenti di Miglioramento del Gioco",
         heroSubtitle: "Ottimizza il tuo gameplay con calcoli precisi",
         chiefGear: "Equipaggiamento del Capo",
@@ -440,153 +840,344 @@ const TRANSLATIONS = {
         comingSoon: "Prossimamente",
         supportTitle: "Supporta lo Sviluppo",
         supportDescription: "Se vuoi contribuire e supportare il mio progetto di sviluppo. Puoi inviarmi regali usando il mio ID qui sotto.",
-        gameId: "ID del Gioco"
+        gameId: "ID Gioco",
+        pageTitle: "Calcolatore Equipaggiamento del Capo",
+        pageSubtitle: "Calcola i materiali necessari per migliorare il tuo equipaggiamento del capo",
+        charmsPageTitle: "Calcolatore Incantesimi del Capo",
+        charmsPageSubtitle: "Calcola i materiali necessari per migliorare i tuoi incantesimi del capo",
+        currentInventory: "Inventario Attuale",
+        quickSetAll: "Imposta Tutto Rapidamente",
+        currentLevel: "Livello Attuale",
+        desiredLevel: "Livello Desiderato",
+        selectLevel: "Seleziona livello...",
+        helmet: "Elmetto",
+        chestplate: "Corazza",
+        pants: "Pantaloni",
+        watch: "Orologio",
+        ring: "Anello",
+        staff: "Bastone",
+        calculateMaterialsNeeded: "Calcola Materiali Necessari",
+        upgradeAnalysis: "Analisi Miglioramento",
+        materialsNeededFor: "Materiali necessari per",
+        selectedPieces: "pezzo/i selezionato/i",
+        sufficient: "✓ Sufficiente",
+        needMore: "Serve",
+        more: "di più",
+        youHaveEnough: "Ne hai abbastanza!",
+        additionalMaterialsNeeded: "Materiali aggiuntivi necessari",
+        totalRequired: "Totale Richiesto",
+        current: "Attuale",
+        surplus: "Surplus",
+        missing: "Mancante",
+        desiredLevelRequired: ": Livello desiderato richiesto",
+        invalidDesiredLevel: ": Livello desiderato non valido",
+        desiredLevelMustBeHigher: ": Il livello desiderato deve essere superiore al livello attuale",
+        selectAtLeastOnePiece: "Seleziona almeno un pezzo di equipaggiamento per calcolare i costi di miglioramento.",
+        svsPointsGained: "Punti SvS Guadagnati",
+        totalSvsPoints: "Punti SvS Totali",
+        charmSlot: "Slot Incantesimo",
+        fromLevel: "Livello Iniziale",
+        toLevel: "Livello Finale",
+        setAllFrom: "Imposta Tutti Da",
+        setAllTo: "Imposta Tutti A",
+        setPieceFrom: "Imposta Pezzo Da",
+        setPieceTo: "Imposta Pezzo A",
+        statBonus: "Bonus Statistiche",
+        totalPower: "Potere Totale",
+        powerGained: "Potere Guadagnato",
+        selectedSlots: "slot incantesimo selezionati",
+        guide: "Guida Incantesimo",
+        design: "Design Incantesimo",
+        secret: "Segreto Incantesimo",
+        ingot: "Lega Indurita",
+        potion: "Soluzione Lucidante",
+        scroll: "Piani di Design",
+        amber: "Ambra Lunare"
     },
     ar: {
-        title: "حاسبة وايت آوت سرفايفل",
-        logoMain: "وايت آوت سرفايفل",
+        title: "حاسبة وايت أوت سرفايفل",
+        logoMain: "وايت أوت سرفايفل",
         logoSub: "مجموعة الحاسبات",
         home: "الرئيسية",
         heroTitle: "أدوات تحسين اللعبة",
-        heroSubtitle: "حسن طريقة لعبك بحسابات دقيقة",
+        heroSubtitle: "حسّن أسلوب لعبك بحسابات دقيقة",
         chiefGear: "معدات الزعيم",
         chiefCharms: "تعاويذ الزعيم",
         available: "متاح",
         comingSoon: "قريباً",
         supportTitle: "دعم التطوير",
-        supportDescription: "إذا كنت تريد المساهمة ودعم مشروع التطوير الخاص بي. يمكنك إرسال الهدايا باستخدام معرفي أدناه.",
-        gameId: "معرف اللعبة"
+        supportDescription: "إذا كنت تريد المساهمة ودعم مشروع التطوير الخاص بي. يمكنك إرسال هدايا لي باستخدام معرفي أدناه.",
+        gameId: "معرف اللعبة",
+        pageTitle: "حاسبة معدات الزعيم",
+        pageSubtitle: "احسب المواد المطلوبة لتطوير معدات زعيمك",
+        charmsPageTitle: "حاسبة تعاويذ الزعيم",
+        charmsPageSubtitle: "احسب المواد المطلوبة لتطوير تعاويذ زعيمك",
+        currentInventory: "المخزون الحالي",
+        quickSetAll: "تعيين الكل بسرعة",
+        currentLevel: "المستوى الحالي",
+        desiredLevel: "المستوى المرغوب",
+        selectLevel: "اختر المستوى...",
+        helmet: "خوذة",
+        chestplate: "درع صدر",
+        pants: "بنطلون",
+        watch: "ساعة",
+        ring: "خاتم",
+        staff: "عصا",
+        calculateMaterialsNeeded: "احسب المواد المطلوبة",
+        upgradeAnalysis: "تحليل التطوير",
+        materialsNeededFor: "المواد المطلوبة لـ",
+        selectedPieces: "القطع المختارة",
+        sufficient: "✓ كافي",
+        needMore: "تحتاج",
+        more: "أكثر",
+        youHaveEnough: "لديك ما يكفي!",
+        additionalMaterialsNeeded: "مواد إضافية مطلوبة",
+        totalRequired: "المطلوب الإجمالي",
+        current: "الحالي",
+        surplus: "فائض",
+        missing: "مفقود",
+        desiredLevelRequired: ": المستوى المرغوب مطلوب",
+        invalidDesiredLevel: ": مستوى مرغوب غير صالح",
+        desiredLevelMustBeHigher: ": يجب أن يكون المستوى المرغوب أعلى من المستوى الحالي",
+        selectAtLeastOnePiece: "يرجى اختيار قطعة معدات واحدة على الأقل لحساب تكاليف التطوير.",
+        svsPointsGained: "نقاط SvS المكتسبة",
+        totalSvsPoints: "إجمالي نقاط SvS",
+        charmSlot: "فتحة التعويذة",
+        fromLevel: "من المستوى",
+        toLevel: "إلى المستوى",
+        setAllFrom: "تعيين الكل من",
+        setAllTo: "تعيين الكل إلى",
+        setPieceFrom: "تعيين القطعة من",
+        setPieceTo: "تعيين القطعة إلى",
+        statBonus: "مكافأة الإحصائيات",
+        totalPower: "القوة الإجمالية",
+        powerGained: "القوة المكتسبة",
+        selectedSlots: "فتحات التعويذة المختارة",
+        guide: "دليل التعويذة",
+        design: "تصميم التعويذة",
+        secret: "سر التعويذة",
+        ingot: "سبيكة مقواة",
+        potion: "محلول تلميع",
+        scroll: "مخططات التصميم",
+        amber: "عنبر قمري"
     },
     hi: {
         title: "व्हाइटआउट सर्वाइवल कैलकुलेटर",
         logoMain: "व्हाइटआउट सर्वाइवल",
         logoSub: "कैलकुलेटर सूट",
-        home: "मुखपृष्ठ",
-        heroTitle: "गेम संवर्धन उपकरण",
+        home: "होम",
+        heroTitle: "गेम एन्हांसमेंट टूल्स",
         heroSubtitle: "सटीक गणनाओं के साथ अपने गेमप्ले को अनुकूलित करें",
         chiefGear: "चीफ गियर",
         chiefCharms: "चीफ चार्म्स",
         available: "उपलब्ध",
         comingSoon: "जल्द आ रहा है",
         supportTitle: "विकास का समर्थन करें",
-        supportDescription: "यदि आप मेरे विकास प्रोजेक्ट में योगदान और समर्थन करना चाहते हैं। आप नीचे दिए गए मेरे ID का उपयोग करके उपहार भेज सकते हैं।",
-        gameId: "गेम आईडी"
+        supportDescription: "यदि आप मेरे विकास प्रोजेक्ट में योगदान देना और समर्थन करना चाहते हैं। आप नीचे दी गई मेरी ID का उपयोग करके मुझे उपहार भेज सकते हैं।",
+        gameId: "गेम ID",
+        pageTitle: "चीफ गियर कैलकुलेटर",
+        pageSubtitle: "अपने चीफ गियर को अपग्रेड करने के लिए आवश्यक सामग्री की गणना करें",
+        charmsPageTitle: "चीफ चार्म्स कैलकुलेटर",
+        charmsPageSubtitle: "अपने चीफ चार्म्स को अपग्रेड करने के लिए आवश्यक सामग्री की गणना करें",
+        currentInventory: "वर्तमान इन्वेंटरी",
+        quickSetAll: "सभी को त्वरित सेट करें",
+        currentLevel: "वर्तमान स्तर",
+        desiredLevel: "वांछित स्तर",
+        selectLevel: "स्तर चुनें...",
+        helmet: "हेलमेट",
+        chestplate: "चेस्टप्लेट",
+        pants: "पैंट्स",
+        watch: "घड़ी",
+        ring: "रिंग",
+        staff: "स्टाफ",
+        calculateMaterialsNeeded: "आवश्यक सामग्री की गणना करें",
+        upgradeAnalysis: "अपग्रेड विश्लेषण",
+        materialsNeededFor: "के लिए आवश्यक सामग्री",
+        selectedPieces: "चयनित टुकड़े",
+        sufficient: "✓ पर्याप्त",
+        needMore: "चाहिए",
+        more: "और",
+        youHaveEnough: "आपके पास पर्याप्त है!",
+        additionalMaterialsNeeded: "अतिरिक्त सामग्री की आवश्यकता",
+        totalRequired: "कुल आवश्यक",
+        current: "वर्तमान",
+        surplus: "अतिरिक्त",
+        missing: "गुम",
+        desiredLevelRequired: ": वांछित स्तर आवश्यक है",
+        invalidDesiredLevel: ": अमान्य वांछित स्तर",
+        desiredLevelMustBeHigher: ": वांछित स्तर वर्तमान स्तर से अधिक होना चाहिए",
+        selectAtLeastOnePiece: "कृपया अपग्रेड लागत की गणना करने के लिए कम से कम एक गियर पीस चुनें।",
+        svsPointsGained: "प्राप्त SvS अंक",
+        totalSvsPoints: "कुल SvS अंक",
+        charmSlot: "चार्म स्लॉट",
+        fromLevel: "स्तर से",
+        toLevel: "स्तर तक",
+        setAllFrom: "सभी को से सेट करें",
+        setAllTo: "सभी को तक सेट करें",
+        setPieceFrom: "टुकड़े को से सेट करें",
+        setPieceTo: "टुकड़े को तक सेट करें",
+        statBonus: "स्टेट बोनस",
+        totalPower: "कुल शक्ति",
+        powerGained: "प्राप्त शक्ति",
+        selectedSlots: "चयनित चार्म स्लॉट्स",
+        guide: "चार्म गाइड",
+        design: "चार्म डिज़ाइन",
+        secret: "चार्म सीक्रेट",
+        ingot: "हार्डन्ड एलॉय",
+        potion: "पॉलिशिंग सोल्यूशन",
+        scroll: "डिज़ाइन प्लान्स",
+        amber: "चंद्र एम्बर"
     }
 };
-
-function loadIcon(container, itemData, onLoad = null) {
-    if (!container) return;
-    if (!itemData.icon || !itemData.icon.startsWith('http')) {
-        container.textContent = itemData.fallback || '❓';
-        return;
-    }
-
-    const img = document.createElement('img');
-    img.src = itemData.icon;
-    img.alt = itemData.name;
-    img.style.cssText = 'width:100%;height:100%;object-fit:contain;';
-    
-    img.onload = () => {
-        container.innerHTML = '';
-        container.appendChild(img);
-        if (onLoad) onLoad(true);
-    };
-    
-    img.onerror = () => {
-        container.textContent = itemData.fallback || '❓';
-        if (onLoad) onLoad(false);
-    };
-}
-
-function t(key, lang = 'en') {
-    return TRANSLATIONS[lang]?.[key] || TRANSLATIONS.en[key] || key;
-}
-
-class ThemeManager {
-    constructor() {
-        this.currentTheme = localStorage.getItem('theme') || 'light-theme';
-        this.applyTheme(this.currentTheme);
-        this.setupEventListeners();
-    }
-
-    applyTheme(theme) {
-        document.body.classList.remove('light-theme', 'dark-theme');
-        document.body.classList.add(theme);
-        this.currentTheme = theme;
-    }
-
-    toggleTheme() {
-        const newTheme = this.currentTheme === 'light-theme' ? 'dark-theme' : 'light-theme';
-        this.applyTheme(newTheme);
-    }
-
-    setupEventListeners() {
-        const themeSwitcher = document.getElementById('theme-switcher');
-        if (themeSwitcher) {
-            themeSwitcher.addEventListener('click', () => this.toggleTheme());
-        }
-    }
-}
 
 class LanguageManager {
     constructor() {
         this.currentLanguage = localStorage.getItem('language') || 'en';
-        this.setupEventListeners();
+        this.init();
     }
 
-    updateLanguage(lang) {
-        this.currentLanguage = lang;
-        localStorage.setItem('language', lang);
-        
-        document.title = t('title', lang);
-        
-        const languageBtn = document.getElementById('language-btn');
-        if (languageBtn) languageBtn.textContent = lang.toUpperCase();
-        
-        document.querySelectorAll('.language-option').forEach(option => {
-            option.classList.toggle('active', option.dataset.lang === lang);
-        });
+    init() {
+        this.createLanguageDropdown();
+        this.setupEventListeners();
+        this.updateLanguage(this.currentLanguage);
+    }
 
-        document.dispatchEvent(new CustomEvent('languageChanged', { 
-            detail: { language: lang, translations: TRANSLATIONS[lang] || TRANSLATIONS.en } 
-        }));
+    createLanguageDropdown() {
+        const dropdown = document.getElementById('language-dropdown');
+        if (!dropdown) return;
+
+        Object.keys(LANGUAGES).forEach(langCode => {
+            const option = document.createElement('div');
+            option.className = 'language-option';
+            if (langCode === this.currentLanguage) {
+                option.classList.add('active');
+            }
+            option.innerHTML = `
+                <span class="language-flag">${LANGUAGES[langCode].flag}</span>
+                <span>${LANGUAGES[langCode].name}</span>
+            `;
+            option.addEventListener('click', () => {
+                this.updateLanguage(langCode);
+                dropdown.classList.remove('show');
+            });
+            dropdown.appendChild(option);
+        });
     }
 
     setupEventListeners() {
         const languageBtn = document.getElementById('language-btn');
-        const languageDropdown = document.getElementById('language-dropdown');
-
-        if (languageBtn && languageDropdown) {
+        const dropdown = document.getElementById('language-dropdown');
+        
+        if (languageBtn && dropdown) {
             languageBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
-                languageDropdown.classList.toggle('show');
-            });
-
-            languageDropdown.innerHTML = Object.entries(LANGUAGES).map(([code, lang]) => 
-                `<div class="language-option ${code === this.currentLanguage ? 'active' : ''}" data-lang="${code}">
-                    <span class="language-flag">${lang.flag}</span>
-                    <span class="language-name">${lang.name}</span>
-                </div>`
-            ).join('');
-
-            languageDropdown.addEventListener('click', (e) => {
-                const option = e.target.closest('.language-option');
-                if (option) {
-                    this.updateLanguage(option.dataset.lang);
-                    languageDropdown.classList.remove('show');
-                }
+                dropdown.classList.toggle('show');
             });
 
             document.addEventListener('click', (e) => {
-                if (!e.target.closest('.language-selector')) {
-                    languageDropdown.classList.remove('show');
+                if (!languageBtn.contains(e.target)) {
+                    dropdown.classList.remove('show');
                 }
             });
         }
     }
 
+    updateLanguage(langCode) {
+        this.currentLanguage = langCode;
+        localStorage.setItem('language', langCode);
+
+        const languageBtn = document.getElementById('language-btn');
+        if (languageBtn) {
+            languageBtn.textContent = langCode.toUpperCase();
+        }
+
+        const dropdown = document.getElementById('language-dropdown');
+        if (dropdown) {
+            dropdown.querySelectorAll('.language-option').forEach(option => {
+                option.classList.remove('active');
+            });
+            const activeOption = dropdown.children[Object.keys(LANGUAGES).indexOf(langCode)];
+            if (activeOption) {
+                activeOption.classList.add('active');
+            }
+        }
+
+        this.applyTranslations();
+        document.dispatchEvent(new CustomEvent('languageChanged', {
+            detail: { language: langCode, translations: this.getCurrentTranslations() }
+        }));
+    }
+
     getCurrentTranslations() {
         return TRANSLATIONS[this.currentLanguage] || TRANSLATIONS.en;
+    }
+
+    applyTranslations() {
+        const translations = this.getCurrentTranslations();
+        document.querySelectorAll('[data-i18n]').forEach(element => {
+            const key = element.getAttribute('data-i18n');
+            if (translations[key]) {
+                element.textContent = translations[key];
+            }
+        });
+
+        document.title = translations.title || 'Whiteout Survival Calculator';
+
+        Object.keys(MATERIALS).forEach(materialKey => {
+            const nameElement = document.querySelector(`[data-material="${materialKey}"]`);
+            if (nameElement && translations[materialKey]) {
+                nameElement.textContent = translations[materialKey];
+            }
+        });
+
+        Object.keys(CHARM_MATERIALS).forEach(materialKey => {
+            const nameElement = document.querySelector(`[data-material="${materialKey}"]`);
+            if (nameElement && translations[materialKey]) {
+                nameElement.textContent = translations[materialKey];
+            }
+        });
+    }
+}
+
+class ThemeManager {
+    constructor() {
+        this.currentTheme = localStorage.getItem('theme') || 'light';
+        this.init();
+    }
+
+    init() {
+        this.applyTheme();
+        this.setupEventListener();
+    }
+
+    setupEventListener() {
+        const themeBtn = document.getElementById('theme-switcher');
+        if (themeBtn) {
+            themeBtn.addEventListener('click', () => {
+                this.toggleTheme();
+            });
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'd') {
+                e.preventDefault();
+                this.toggleTheme();
+            }
+        });
+    }
+
+    toggleTheme() {
+        this.currentTheme = this.currentTheme === 'light' ? 'dark' : 'light';
+        this.applyTheme();
+        localStorage.setItem('theme', this.currentTheme);
+    }
+
+    applyTheme() {
+        if (this.currentTheme === 'dark') {
+            document.body.classList.add('dark-theme');
+        } else {
+            document.body.classList.remove('dark-theme');
+        }
     }
 }
 
@@ -595,155 +1186,170 @@ class Dropdown {
         this.element = element;
         this.toggle = element.querySelector('.dropdown-toggle');
         this.menu = element.querySelector('.dropdown-menu');
-        this.options = options;
-        this.selectedValue = '';
-        this.selectedText = '';
-        
-        if (!this.toggle || !this.menu) return;
+        this.text = element.querySelector('.dropdown-text');
+        this.items = options.items || [];
+        this.value = '';
+
+        this.init();
+    }
+
+    init() {
+        this.createItems();
         this.setupEventListeners();
-        this.populateOptions();
+    }
+
+    createItems() {
+        this.menu.innerHTML = '';
+        this.items.forEach(item => {
+            const div = document.createElement('div');
+            div.className = 'dropdown-item';
+            div.textContent = item.text;
+            div.dataset.value = item.value;
+            div.addEventListener('click', () => {
+                this.setValue(item.value);
+                this.close();
+            });
+            this.menu.appendChild(div);
+        });
     }
 
     setupEventListeners() {
         this.toggle.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
-            this.toggleMenu();
+            this.toggle();
         });
-    }
 
-    populateOptions() {
-        if (!this.options.items) return;
-        this.menu.innerHTML = this.options.items.map(item => 
-            `<div class="dropdown-item" data-value="${item.value !== undefined ? item.value : item}">
-                ${item.text || item}
-            </div>`
-        ).join('');
+        document.addEventListener('click', (e) => {
+            if (!this.element.contains(e.target)) {
+                this.close();
+            }
+        });
 
-        this.menu.addEventListener('click', (e) => {
-            const item = e.target.closest('.dropdown-item');
-            if (item) {
-                e.stopPropagation();
-                this.selectItem(item.dataset.value, item.textContent);
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                this.close();
             }
         });
     }
 
-    selectItem(value, text) {
-        this.selectedValue = value;
-        this.selectedText = text;
-        
-        const toggleText = this.toggle.querySelector('.dropdown-text');
-        if (toggleText) toggleText.textContent = text.trim();
-        
-        this.closeMenu();
-        this.element.dispatchEvent(new CustomEvent('change', {
-            detail: { value: this.selectedValue, text: this.selectedText }
-        }));
-    }
-
-    toggleMenu() {
-        const isOpening = !this.element.classList.contains('show');
-        document.querySelectorAll('.dropdown.show').forEach(d => d.classList.remove('show'));
-        document.querySelectorAll('.dropdown-menu.show').forEach(m => m.classList.remove('show'));
-        
-        if (isOpening) {
-            this.element.classList.add('show');
-            this.menu.classList.add('show');
+    toggle() {
+        if (this.element.classList.contains('show')) {
+            this.close();
+        } else {
+            this.open();
         }
     }
 
-    openMenu() {
-        this.toggleMenu();
+    open() {
+        document.querySelectorAll('.dropdown.show').forEach(dropdown => {
+            if (dropdown !== this.element) {
+                dropdown.classList.remove('show');
+            }
+        });
+
+        this.element.classList.add('show');
+        this.menu.classList.add('show');
     }
 
-    closeMenu() {
+    close() {
         this.element.classList.remove('show');
         this.menu.classList.remove('show');
     }
 
     setValue(value) {
-        const item = this.options.items.find(item => 
-            (item.value !== undefined ? item.value : item).toString() === value.toString()
-        );
-        if (item) this.selectItem(item.value !== undefined ? item.value : item, item.text || item);
-    }
-
-    getValue() { return this.selectedValue; }
-    getText() { return this.selectedText; }
-}
-
-class ProtectionManager {
-    constructor() {
-        document.addEventListener('contextmenu', e => {
-            if (!['INPUT', 'TEXTAREA'].includes(e.target.tagName)) e.preventDefault();
-        });
-        document.addEventListener('keydown', e => {
-            if (e.keyCode === 123 || (e.ctrlKey && [85, 83].includes(e.keyCode))) e.preventDefault();
-        });
-    }
-}
-
-const addRippleEffect = (element, event) => {
-    const rect = element.getBoundingClientRect();
-    const ripple = document.createElement('div');
-    const size = Math.max(rect.width, rect.height);
-    ripple.style.cssText = `position:absolute;width:${size}px;height:${size}px;left:${event.clientX-rect.left-size/2}px;top:${event.clientY-rect.top-size/2}px;background:rgba(255,255,255,0.3);border-radius:50%;transform:scale(0);animation:ripple 0.6s linear;pointer-events:none;`;
-    element.style.position = 'relative';
-    element.style.overflow = 'hidden';
-    element.appendChild(ripple);
-    ripple.addEventListener('animationend', () => ripple.remove());
-};
-
-const formatNumber = num => num.toLocaleString();
-const debounce = (func, wait) => {
-    let timeout;
-    return (...args) => {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => func(...args), wait);
-    };
-};
-
-function initializeCommon() {
-    window.protectionManager = new ProtectionManager();
-    window.themeManager = new ThemeManager();
-    window.languageManager = new LanguageManager();
-
-    document.querySelectorAll('.btn, .theme-btn, .language-btn').forEach(button => {
-        button.addEventListener('click', e => addRippleEffect(button, e));
-    });
-
-    document.addEventListener('keydown', e => {
-        if ((e.ctrlKey || e.metaKey) && e.key === 'd') {
-            e.preventDefault();
-            window.themeManager.toggleTheme();
+        this.value = value.toString();
+        const item = this.items.find(item => item.value.toString() === value.toString());
+        if (item) {
+            this.text.textContent = item.text;
         }
+
+        this.element.dispatchEvent(new CustomEvent('change', {
+            detail: { value: this.value }
+        }));
+    }
+
+    getValue() {
+        return this.value;
+    }
+
+    updateItems(items) {
+        this.items = items;
+        this.createItems();
+    }
+}
+
+function formatNumber(num) {
+    if (num >= 1000000000) {
+        return (num / 1000000000).toFixed(1).replace(/\.0$/, '') + 'B';
+    }
+    if (num >= 1000000) {
+        return (num / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+    }
+    if (num >= 1000) {
+        return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
+    }
+    return num.toLocaleString();
+}
+
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+async function loadIcon(container, materialData) {
+    if (!container || !materialData) return;
+
+    try {
+        const img = new Image();
+        img.onload = () => {
+            container.innerHTML = '';
+            img.style.width = '100%';
+            img.style.height = '100%';
+            img.style.objectFit = 'contain';
+            container.appendChild(img);
+        };
+        img.onerror = () => {
+            container.textContent = materialData.fallback;
+        };
+        img.src = materialData.icon;
+    } catch (error) {
+        container.textContent = materialData.fallback;
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    window.languageManager = new LanguageManager();
+    window.themeManager = new ThemeManager();
+
+    const closeAllDropdowns = () => {
+        document.querySelectorAll('.dropdown.show').forEach(dropdown => {
+            dropdown.classList.remove('show');
+        });
+        document.querySelectorAll('.dropdown-menu.show').forEach(menu => {
+            menu.classList.remove('show');
+        });
+        document.querySelectorAll('.language-dropdown.show').forEach(dropdown => {
+            dropdown.classList.remove('show');
+        });
+    };
+
+    document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
-            document.querySelectorAll('.dropdown.show, .language-dropdown.show').forEach(el => {
-                el.classList.remove('show');
-            });
+            closeAllDropdowns();
         }
     });
 
     document.addEventListener('click', (e) => {
-        if (!e.target.closest('.dropdown')) {
-            document.querySelectorAll('.dropdown.show').forEach(d => {
-                d.classList.remove('show');
-                const menu = d.querySelector('.dropdown-menu');
-                if(menu) menu.classList.remove('show');
-            });
+        if (!e.target.closest('.dropdown') && !e.target.closest('.language-selector')) {
+            closeAllDropdowns();
         }
     });
-
-    const style = document.createElement('style');
-    style.textContent = '@keyframes ripple{to{transform:scale(4);opacity:0;}}';
-    document.head.appendChild(style);
-
-    window.languageManager.updateLanguage(window.languageManager.currentLanguage);
-}
-
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initializeCommon);
-} else {
-    initializeCommon();
-}
+});
