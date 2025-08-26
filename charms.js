@@ -1,656 +1,571 @@
-.main {
-    padding: 2rem 0;
-}
-
-.page-header {
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-.page-title {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    background: var(--gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.page-subtitle {
-    font-size: 1rem;
-    color: var(--text-secondary);
-    font-weight: 500;
-}
-
-.calculator-layout {
-    display: grid;
-    grid-template-columns: 350px 1fr;
-    gap: 2rem;
-    align-items: start;
-}
-
-/* Sidebar */
-.sidebar {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    position: sticky;
-    top: 6rem;
-}
-
-.inventory-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.inventory-item {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 1rem;
-    border: 1px solid var(--border);
-    border-radius: 0.75rem;
-    background-color: var(--bg-tertiary);
-    transition: all 0.2s ease;
-}
-
-.inventory-item:hover {
-    border-color: var(--border-hover);
-    transform: translateY(-1px);
-}
-
-.material-info {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    flex: 1;
-}
-
-.material-icon {
-    font-size: 2rem;
-    width: 2.5rem;
-    height: 2.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 0.5rem;
-    background-color: var(--bg-secondary);
-    border: 1px solid var(--border);
-}
-
-.material-name {
-    font-weight: 500;
-    font-size: 0.875rem;
-    color: var(--text-primary);
-}
-
-.inventory-item .form-input {
-    width: 100px;
-    text-align: center;
-    margin-bottom: 0;
-    font-weight: 600;
-    font-size: 0.875rem;
-}
-
-.control-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-/* Gear form - adapted for charms */
-.gear-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-}
-
-.gear-card {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    z-index: 1;
-    padding: 1.5rem;
-}
-
-.gear-card:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
-    z-index: 2;
-}
-
-.gear-card.disabled {
-    opacity: 0.5;
-}
-
-.gear-card.error {
-    border-color: var(--error);
-    animation: shake 0.5s ease-in-out;
-}
-
-.gear-header {
-    margin-bottom: 1.5rem;
-}
-
-.gear-title {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 1rem;
-}
-
-.gear-checkbox {
-    width: 1.25rem;
-    height: 1.25rem;
-    cursor: pointer;
-    accent-color: var(--accent);
-}
-
-.gear-label {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    cursor: pointer;
-    transition: color 0.2s ease;
-    font-weight: 500;
-    color: var(--text-primary);
-}
-
-.gear-label:hover {
-    color: var(--accent);
-}
-
-.gear-icon {
-    font-size: 1.5rem;
-    width: 2rem;
-    height: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 0.375rem;
-    background-color: var(--bg-tertiary);
-    border: 1px solid var(--border);
-}
-
-.gear-name {
-    font-size: 0.875rem;
-}
-
-.piece-controls {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-}
-
-.piece-control-buttons {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.75rem;
-}
-
-.piece-from-group,
-.piece-to-group {
-    margin-bottom: 0;
-}
-
-.form-label-small {
-    font-size: 0.75rem;
-    font-weight: 500;
-    color: var(--text-primary);
-    margin-bottom: 0.25rem;
-}
-
-.piece-from-dropdown .dropdown-toggle,
-.piece-to-dropdown .dropdown-toggle {
-    padding: 0.5rem 0.75rem;
-    min-height: 2rem;
-    font-size: 0.75rem;
-}
-
-/* Charm slots */
-.charm-slots {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.charm-slot {
-    border: 1px solid var(--border);
-    border-radius: 0.5rem;
-    padding: 1rem;
-    background-color: var(--bg-tertiary);
-    transition: all 0.2s ease;
-}
-
-.charm-slot:hover {
-    border-color: var(--border-hover);
-}
-
-.slot-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-
-.slot-title {
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--text-primary);
-}
-
-.slot-number {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--accent);
-    background-color: var(--bg-secondary);
-    padding: 0.25rem 0.5rem;
-    border-radius: 0.25rem;
-}
-
-.slot-controls {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.75rem;
-    margin-bottom: 1rem;
-}
-
-.slot-controls .form-group {
-    margin-bottom: 0;
-}
-
-.slot-controls .form-label {
-    font-size: 0.75rem;
-    margin-bottom: 0.25rem;
-}
-
-.slot-controls .dropdown-toggle {
-    padding: 0.5rem 0.75rem;
-    min-height: 2rem;
-    font-size: 0.75rem;
-}
-
-/* Stat display */
-.stat-display {
-    display: flex;
-    justify-content: space-between;
-    gap: 0.75rem;
-    padding: 0.75rem;
-    background-color: var(--bg-secondary);
-    border-radius: 0.375rem;
-    border: 1px solid var(--border);
-}
-
-.stat-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    flex: 1;
-}
-
-.stat-label {
-    font-size: 0.7rem;
-    color: var(--text-secondary);
-    margin-bottom: 0.25rem;
-    font-weight: 500;
-}
-
-.stat-value {
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--accent);
-}
-
-/* Fixed dropdown positioning for charm slots */
-.charm-slot .dropdown {
-    position: relative;
-}
-
-.charm-slot .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    max-height: 150px;
-    overflow-y: auto;
-    background-color: var(--bg-primary);
-    border: 1px solid var(--border);
-    border-radius: 0.75rem;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-    display: none;
-    margin-top: 0.25rem;
-}
-
-body.dark-theme .charm-slot .dropdown-menu {
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
-}
-
-.charm-slot .dropdown.show {
-    z-index: 100;
-}
-
-.charm-slot .dropdown-menu.show {
-    display: block;
-    animation: dropdownSlideIn 0.2s ease-out;
-}
-
-.piece-from-dropdown .dropdown-menu,
-.piece-to-dropdown .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    max-height: 150px;
-    overflow-y: auto;
-    background-color: var(--bg-primary);
-    border: 1px solid var(--border);
-    border-radius: 0.75rem;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-    display: none;
-    margin-top: 0.25rem;
-}
-
-body.dark-theme .piece-from-dropdown .dropdown-menu,
-body.dark-theme .piece-to-dropdown .dropdown-menu {
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
-}
-
-.piece-from-dropdown.show,
-.piece-to-dropdown.show {
-    z-index: 100;
-}
-
-.piece-from-dropdown .dropdown-menu.show,
-.piece-to-dropdown .dropdown-menu.show {
-    display: block;
-    animation: dropdownSlideIn 0.2s ease-out;
-}
-
-.calculate-btn {
-    width: 100%;
-    padding: 1rem 1.5rem;
-    font-size: 1rem;
-    font-weight: 600;
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-}
-
-.calculate-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
-}
-
-.btn-icon {
-    width: 1.125rem;
-    height: 1.125rem;
-}
-
-/* Results section */
-.results-section {
-    margin-top: 2rem;
-}
-
-.results-container {
-    background-color: var(--bg-secondary);
-    border: 1px solid var(--border);
-    border-radius: 1rem;
-    padding: 2rem;
-}
-
-.results-header {
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-.results-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    background: var(--gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.results-subtitle {
-    color: var(--text-secondary);
-    font-size: 0.875rem;
-}
-
-.results-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.5rem;
-    max-width: none;
-}
-
-.result-card {
-    background-color: var(--bg-tertiary);
-    border: 1px solid var(--border);
-    border-radius: 0.75rem;
-    padding: 1.5rem;
-    transition: all 0.3s ease;
-}
-
-.result-card:hover {
-    transform: translateY(-1px);
-    box-shadow: var(--shadow);
-}
-
-.result-card-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-}
-
-.result-card-title {
-    font-weight: 600;
-    font-size: 1rem;
-    color: var(--text-primary);
-}
-
-.result-needed {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem;
-    border-radius: 0.75rem;
-    border: 1px solid var(--border);
-    background-color: var(--bg-primary);
-}
-
-.result-needed.sufficient {
-    border-color: var(--success);
-    background-color: rgba(16, 185, 129, 0.1);
-}
-
-.result-needed.insufficient {
-    border-color: var(--error);
-    background-color: rgba(239, 68, 68, 0.1);
-}
-
-.result-icon {
-    font-size: 2rem;
-    width: 3rem;
-    height: 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 0.5rem;
-    background-color: var(--bg-secondary);
-    border: 1px solid var(--border);
-}
-
-.result-info {
-    flex: 1;
-}
-
-.result-amount {
-    font-size: 1.125rem;
-    font-weight: 600;
-    margin-bottom: 0.25rem;
-}
-
-.result-amount.sufficient {
-    color: var(--success);
-}
-
-.result-amount.insufficient {
-    color: var(--error);
-}
-
-.result-status {
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-    margin-bottom: 0.5rem;
-}
-
-.result-breakdown {
-    font-size: 0.75rem;
-    color: var(--text-muted);
-    line-height: 1.4;
-}
-
-/* Power & Stats Card Styling */
-.power-stats-card {
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
-    border: 1px solid var(--accent);
-}
-
-.power-stats-card .result-card-title {
-    background: var(--gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    font-weight: 700;
-}
-
-.power-stats-card .result-icon {
-    background: var(--gradient);
-    color: white;
-    border: none;
-    font-size: 1.5rem;
-}
-
-.power-stats-card .result-amount {
-    background: var(--gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    font-size: 1.5rem;
-    font-weight: 700;
-}
-
-/* Responsive design */
-@media (max-width: 1200px) {
-    .calculator-layout {
-        grid-template-columns: 300px 1fr;
+class CharmsCalculator {
+    constructor() {
+        this.dropdowns = new Map();
+        this.gearPieces = ['helmet', 'chestplate', 'pants', 'watch', 'ring', 'staff'];
+        this.inventoryInputs = {};
+        
+        this.initializeInventoryInputs();
+        this.initializeIcons();
+        this.initializeDropdowns();
+        this.setupEventListeners();
+        this.loadSavedState();
     }
-}
 
-@media (max-width: 1024px) {
-    .calculator-layout {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+    initializeInventoryInputs() {
+        Object.keys(CHARM_MATERIALS).forEach(material => {
+            const input = document.getElementById(`inventory-${material}`);
+            if (input) {
+                const saved = localStorage.getItem(`charm-inventory-${material}`);
+                if (saved) {
+                    input.value = saved;
+                }
+                this.inventoryInputs[material] = input;
+            }
+        });
     }
     
-    .sidebar {
-        position: static;
-        order: 1;
+    initializeIcons() {
+        Object.keys(CHARM_MATERIALS).forEach(materialKey => {
+            const container = document.querySelector(`.material-icon[data-icon-for="${materialKey}"]`);
+            loadIcon(container, CHARM_MATERIALS[materialKey]);
+        });
+
+        this.gearPieces.forEach(pieceKey => {
+            const card = document.querySelector(`.gear-card[data-piece="${pieceKey}"]`);
+            if (card) {
+                const container = card.querySelector('.gear-icon');
+                loadIcon(container, GEAR_PIECES[pieceKey]);
+            }
+        });
     }
-    
-    .main-content {
-        order: 2;
+
+    initializeDropdowns() {
+        const levelOptions = [];
+        for (let i = 0; i <= 16; i++) {
+            levelOptions.push({
+                value: i,
+                text: i.toString()
+            });
+        }
+
+        const allFromDropdownEl = document.getElementById('all-from-dropdown');
+        const allToDropdownEl = document.getElementById('all-to-dropdown');
+        
+        if (allFromDropdownEl && allToDropdownEl) {
+            const allFromDropdown = new Dropdown(allFromDropdownEl, { items: levelOptions });
+            const allToDropdown = new Dropdown(allToDropdownEl, { items: levelOptions });
+
+            allFromDropdown.setValue('0');
+            allToDropdown.setValue('0');
+
+            this.dropdowns.set('all-from', allFromDropdown);
+            this.dropdowns.set('all-to', allToDropdown);
+        }
+
+        this.gearPieces.forEach(piece => {
+            const card = document.querySelector(`.gear-card[data-piece="${piece}"]`);
+            if (!card) return;
+
+            const pieceFromDropdownEl = card.querySelector('.piece-from-dropdown');
+            const pieceToDropdownEl = card.querySelector('.piece-to-dropdown');
+            
+            if (pieceFromDropdownEl && pieceToDropdownEl) {
+                const pieceFromDropdown = new Dropdown(pieceFromDropdownEl, { items: levelOptions });
+                const pieceToDropdown = new Dropdown(pieceToDropdownEl, { items: levelOptions });
+                
+                pieceFromDropdown.setValue('0');
+                pieceToDropdown.setValue('0');
+                
+                this.dropdowns.set(`${piece}-piece-from`, pieceFromDropdown);
+                this.dropdowns.set(`${piece}-piece-to`, pieceToDropdown);
+            }
+
+            for (let slot = 1; slot <= 3; slot++) {
+                const slotContainer = card.querySelector(`[data-slot="${slot}"]`);
+                if (slotContainer) {
+                    const slotDropdowns = slotContainer.querySelectorAll('.dropdown');
+                    if (slotDropdowns.length >= 2) {
+                        const fromDropdownEl = slotDropdowns[0];
+                        const toDropdownEl = slotDropdowns[1];
+
+                        const fromDropdown = new Dropdown(fromDropdownEl, { items: levelOptions });
+                        const toDropdown = new Dropdown(toDropdownEl, { items: levelOptions });
+                        
+                        fromDropdown.setValue('0');
+                        toDropdown.setValue('0');
+
+                        this.dropdowns.set(`${piece}-slot${slot}-from`, fromDropdown);
+                        this.dropdowns.set(`${piece}-slot${slot}-to`, toDropdown);
+                    }
+                }
+            }
+        });
     }
-    
-    .results-grid {
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+
+    setupEventListeners() {
+        const allFromDropdown = this.dropdowns.get('all-from');
+        const allToDropdown = this.dropdowns.get('all-to');
+        
+        if (allFromDropdown) {
+            allFromDropdown.element.addEventListener('change', (e) => {
+                this.setAllFromLevels(e.detail.value);
+            });
+        }
+
+        if (allToDropdown) {
+            allToDropdown.element.addEventListener('change', (e) => {
+                this.setAllToLevels(e.detail.value);
+            });
+        }
+
+        this.gearPieces.forEach(piece => {
+            const pieceFromDropdown = this.dropdowns.get(`${piece}-piece-from`);
+            const pieceToDropdown = this.dropdowns.get(`${piece}-piece-to`);
+            
+            if (pieceFromDropdown) {
+                pieceFromDropdown.element.addEventListener('change', (e) => {
+                    this.setPieceFromLevels(piece, e.detail.value);
+                });
+            }
+
+            if (pieceToDropdown) {
+                pieceToDropdown.element.addEventListener('change', (e) => {
+                    this.setPieceToLevels(piece, e.detail.value);
+                });
+            }
+        });
+
+        Object.keys(this.inventoryInputs).forEach(material => {
+            if (this.inventoryInputs[material]) {
+                this.inventoryInputs[material].addEventListener('input', (e) => {
+                    localStorage.setItem(`charm-inventory-${material}`, e.target.value || '0');
+                });
+            }
+        });
+
+        this.gearPieces.forEach(piece => {
+            const checkbox = document.getElementById(`include-${piece}`);
+            if (checkbox) {
+                checkbox.addEventListener('change', () => {
+                    const card = document.querySelector(`.gear-card[data-piece="${piece}"]`);
+                    card?.classList.toggle('disabled', !checkbox.checked);
+                });
+            }
+        });
+
+        const charmsForm = document.getElementById('charms-form');
+        if (charmsForm) {
+            charmsForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                this.calculateUpgrades();
+            });
+        }
+
+        document.addEventListener('languageChanged', (e) => {
+            this.updateContent(e.detail.translations);
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+                e.preventDefault();
+                this.calculateUpgrades();
+            }
+        });
+
+        document.addEventListener('change', () => this.saveFormState());
+        document.addEventListener('input', debounce(() => this.saveFormState(), 500));
+    }
+
+    setAllFromLevels(value) {
+        this.gearPieces.forEach(piece => {
+            const pieceFromDropdown = this.dropdowns.get(`${piece}-piece-from`);
+            if (pieceFromDropdown) {
+                pieceFromDropdown.setValue(value);
+            }
+
+            for (let slot = 1; slot <= 3; slot++) {
+                const slotFromDropdown = this.dropdowns.get(`${piece}-slot${slot}-from`);
+                if (slotFromDropdown) {
+                    slotFromDropdown.setValue(value);
+                }
+            }
+        });
+    }
+
+    setAllToLevels(value) {
+        this.gearPieces.forEach(piece => {
+            const pieceToDropdown = this.dropdowns.get(`${piece}-piece-to`);
+            if (pieceToDropdown) {
+                pieceToDropdown.setValue(value);
+            }
+
+            for (let slot = 1; slot <= 3; slot++) {
+                const slotToDropdown = this.dropdowns.get(`${piece}-slot${slot}-to`);
+                if (slotToDropdown) {
+                    slotToDropdown.setValue(value);
+                }
+            }
+        });
+    }
+
+    setPieceFromLevels(piece, value) {
+        for (let slot = 1; slot <= 3; slot++) {
+            const slotFromDropdown = this.dropdowns.get(`${piece}-slot${slot}-from`);
+            if (slotFromDropdown) {
+                slotFromDropdown.setValue(value);
+            }
+        }
+    }
+
+    setPieceToLevels(piece, value) {
+        for (let slot = 1; slot <= 3; slot++) {
+            const slotToDropdown = this.dropdowns.get(`${piece}-slot${slot}-to`);
+            if (slotToDropdown) {
+                slotToDropdown.setValue(value);
+            }
+        }
+    }
+
+    getInventoryAmounts() {
+        const amounts = {};
+        Object.keys(CHARM_MATERIALS).forEach(material => {
+            amounts[material] = parseInt(this.inventoryInputs[material]?.value || '0') || 0;
+        });
+        return amounts;
+    }
+
+    calculateUpgrades() {
+        this.clearErrors();
+        
+        const totalCost = { guide: 0, design: 0, secret: 0 };
+        let totalStatBonus = 0;
+        let totalPowerGain = 0;
+        let totalSvsPoints = 0;
+        let selectedSlots = 0;
+        let hasErrors = false;
+        const errors = [];
+        const t = window.languageManager.getCurrentTranslations();
+
+        this.gearPieces.forEach(piece => {
+            const checkbox = document.getElementById(`include-${piece}`);
+            if (!checkbox?.checked) return;
+
+            for (let slot = 1; slot <= 3; slot++) {
+                const fromDropdown = this.dropdowns.get(`${piece}-slot${slot}-from`);
+                const toDropdown = this.dropdowns.get(`${piece}-slot${slot}-to`);
+                
+                if (!fromDropdown || !toDropdown) continue;
+                
+                const fromLevel = parseInt(fromDropdown.getValue() || '0');
+                const toLevel = parseInt(toDropdown.getValue() || '0');
+
+                if (toLevel <= 0) continue;
+
+                selectedSlots++;
+                
+                const pieceName = t[piece] || piece.charAt(0).toUpperCase() + piece.slice(1);
+                const slotName = `${pieceName} Slot ${slot}`;
+
+                if (toLevel <= fromLevel) {
+                    errors.push(`${slotName}: ${t.desiredLevelMustBeHigher || 'To level must be higher than From level'}`);
+                    this.addError(piece, slot);
+                    hasErrors = true;
+                    continue;
+                }
+
+                for (let level = fromLevel + 1; level <= toLevel; level++) {
+                    const upgradeCost = CHARM_UPGRADE_COSTS[level];
+                    if (upgradeCost) {
+                        totalCost.guide += upgradeCost.guide;
+                        totalCost.design += upgradeCost.design;
+                        totalCost.secret += upgradeCost.secret;
+                    }
+                    
+                    const svsPoints = CHARM_SVS_POINTS[level];
+                    if (svsPoints) {
+                        totalSvsPoints += svsPoints;
+                    }
+                }
+
+                const fromStats = CHARM_STATS[fromLevel] || { statBonus: 0, power: 0 };
+                const toStats = CHARM_STATS[toLevel] || { statBonus: 0, power: 0 };
+                
+                totalStatBonus += (toStats.statBonus - fromStats.statBonus);
+                totalPowerGain += (toStats.power - fromStats.power);
+            }
+        });
+
+        if (hasErrors) {
+            this.showError(errors.join('<br>'));
+            return;
+        }
+        
+        const slotsWithUpgrades = this.countSlotsWithUpgrades();
+        
+        if (selectedSlots > 0 && slotsWithUpgrades === 0 && !hasErrors) {
+            this.showError(t.desiredLevelMustBeHigher?.replace(':', '') || 'To level must be higher than From level');
+            return;
+        }
+        
+        if (slotsWithUpgrades === 0) {
+            this.showError(t.selectAtLeastOnePiece || 'Please select at least one charm slot to calculate upgrade costs.');
+            return;
+        }
+
+        const inventory = this.getInventoryAmounts();
+        this.displayResults(totalCost, inventory, slotsWithUpgrades, totalStatBonus, totalPowerGain, totalSvsPoints);
+    }
+
+    countSlotsWithUpgrades() {
+        let count = 0;
+        this.gearPieces.forEach(piece => {
+            const checkbox = document.getElementById(`include-${piece}`);
+            if (!checkbox?.checked) return;
+
+            for (let slot = 1; slot <= 3; slot++) {
+                const fromDropdown = this.dropdowns.get(`${piece}-slot${slot}-from`);
+                const toDropdown = this.dropdowns.get(`${piece}-slot${slot}-to`);
+                
+                if (!fromDropdown || !toDropdown) continue;
+                
+                const fromLevel = parseInt(fromDropdown.getValue() || '0');
+                const toLevel = parseInt(toDropdown.getValue() || '0');
+
+                if (toLevel > 0 && toLevel > fromLevel) {
+                    count++;
+                }
+            }
+        });
+        return count;
+    }
+
+    displayResults(totalCost, inventory, selectedSlots, totalStatBonus, totalPowerGain, totalSvsPoints) {
+        const t = window.languageManager.getCurrentTranslations();
+        const resultsSection = document.getElementById('charms-results');
+        
+        const needed = {};
+        Object.keys(CHARM_MATERIALS).forEach(material => {
+            needed[material] = Math.max(0, totalCost[material] - inventory[material]);
+        });
+
+        const resultCards = Object.keys(CHARM_MATERIALS).map(material => {
+            const materialData = CHARM_MATERIALS[material];
+            const total = totalCost[material];
+            const have = inventory[material];
+            const need = needed[material];
+            const sufficient = have >= total;
+
+            return `
+                <div class="result-card">
+                    <div class="result-card-header">
+                        <h4 class="result-card-title">${t[material] || materialData.name}</h4>
+                    </div>
+                    <div class="result-needed ${sufficient ? 'sufficient' : 'insufficient'}">
+                        <div class="result-icon" data-charm-material-icon="${material}">${materialData.fallback}</div>
+                        <div class="result-info">
+                            <div class="result-amount ${sufficient ? 'sufficient' : 'insufficient'}">
+                                ${sufficient ? (t.sufficient || '✓ Sufficient') : `${t.needMore || 'Need'} ${formatNumber(need)}`}
+                            </div>
+                            <div class="result-status">
+                                ${sufficient ? (t.youHaveEnough || 'You have enough!') : (t.additionalMaterialsNeeded || 'Additional materials needed')}
+                            </div>
+                            <div class="result-breakdown">
+                                ${t.totalRequired || 'Total Required'}: ${formatNumber(total)} | 
+                                ${t.current || 'Current'}: ${formatNumber(have)} | 
+                                ${sufficient ? 
+                                    `${t.surplus || 'Surplus'}: ${formatNumber(have - total)}` : 
+                                    `${t.missing || 'Missing'}: ${formatNumber(need)}`
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+
+        const powerStatsCard = (totalPowerGain > 0 || totalStatBonus > 0) ? `
+            <div class="result-card power-stats-card">
+                <div class="result-card-header">
+                    <h4 class="result-card-title">${t.powerGained || 'Power & Stats Gained'}</h4>
+                </div>
+                <div class="result-needed sufficient">
+                    <div class="result-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+                        </svg>
+                    </div>
+                    <div class="result-info">
+                        <div class="result-amount sufficient">
+                            +${formatNumber(totalPowerGain)} ${t.totalPower || 'Power'}
+                        </div>
+                        <div class="result-status">
+                            +${totalStatBonus.toFixed(2)}% ${t.statBonus || 'Stat Bonus'}
+                        </div>
+                        <div class="result-breakdown">
+                            ${t.powerGained || 'Total power and stat bonuses from all charm upgrades'}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        ` : '';
+
+        const svsPointsCard = totalSvsPoints > 0 ? `
+            <div class="result-card svs-points-card">
+                <div class="result-card-header">
+                    <h4 class="result-card-title">${t.svsPointsGained || 'SvS Points Gained'}</h4>
+                </div>
+                <div class="result-needed sufficient">
+                    <div class="result-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+                        </svg>
+                    </div>
+                    <div class="result-info">
+                        <div class="result-amount sufficient">
+                            +${formatNumber(totalSvsPoints)}
+                        </div>
+                        <div class="result-status">
+                            ${t.totalSvsPoints || 'Total SvS Points'}
+                        </div>
+                        <div class="result-breakdown">
+                            ${t.svsPointsGained || 'SvS Points gained from charm upgrades'}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        ` : '';
+
+        resultsSection.innerHTML = `
+            <div class="results-container">
+                <div class="results-header">
+                    <h3 class="results-title">${t.upgradeAnalysis || 'Upgrade Analysis'}</h3>
+                    <p class="results-subtitle">${t.materialsNeededFor || 'Materials needed for'} ${selectedSlots} ${t.selectedSlots || 'selected charm slot(s)'}</p>
+                </div>
+                <div class="results-grid">
+                    ${resultCards}
+                    ${powerStatsCard}
+                    ${svsPointsCard}
+                </div>
+            </div>
+        `;
+
+        Object.keys(CHARM_MATERIALS).forEach(material => {
+            const iconContainer = resultsSection.querySelector(`[data-charm-material-icon="${material}"]`);
+            if (iconContainer) {
+                loadIcon(iconContainer, CHARM_MATERIALS[material]);
+            }
+        });
+    }
+
+    clearErrors() {
+        document.querySelectorAll('.gear-card').forEach(card => {
+            card.classList.remove('error');
+        });
+        
+        document.querySelectorAll('.charm-slot').forEach(slot => {
+            slot.classList.remove('error');
+        });
+        
+        const existingError = document.querySelector('.error-message');
+        if (existingError) {
+            existingError.remove();
+        }
+    }
+
+    addError(piece, slot) {
+        const card = document.querySelector(`.gear-card[data-piece="${piece}"]`);
+        if (card) {
+            card.classList.add('error');
+            
+            const slotContainer = card.querySelector(`[data-slot="${slot}"]`);
+            if (slotContainer) {
+                slotContainer.classList.add('error');
+            }
+        }
+    }
+
+    showError(message) {
+        const resultsSection = document.getElementById('charms-results');
+        resultsSection.innerHTML = `
+            <div class="error-message">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <line x1="15" y1="9" x2="9" y2="15"/>
+                    <line x1="9" y1="9" x2="15" y2="15"/>
+                </svg>
+                <span>${message}</span>
+            </div>
+        `;
+    }
+
+    saveFormState() {
+        this.gearPieces.forEach(piece => {
+            const checkbox = document.getElementById(`include-${piece}`);
+            if (checkbox) {
+                localStorage.setItem(`charm-${piece}-enabled`, checkbox.checked);
+            }
+        });
+
+        this.dropdowns.forEach((dropdown, key) => {
+            localStorage.setItem(`charm-dropdown-${key}`, dropdown.getValue());
+        });
+    }
+
+    loadSavedState() {
+        this.gearPieces.forEach(piece => {
+            const checkbox = document.getElementById(`include-${piece}`);
+            const enabled = localStorage.getItem(`charm-${piece}-enabled`);
+            
+            if (enabled !== null && checkbox) {
+                checkbox.checked = enabled === 'true';
+                const card = document.querySelector(`.gear-card[data-piece="${piece}"]`);
+                card?.classList.toggle('disabled', !checkbox.checked);
+            }
+        });
+
+        this.dropdowns.forEach((dropdown, key) => {
+            const savedValue = localStorage.getItem(`charm-dropdown-${key}`);
+            if (savedValue !== null) {
+                dropdown.setValue(savedValue);
+            }
+        });
+    }
+
+    updateContent(translations) {
+        document.querySelectorAll('[data-i18n]').forEach(element => {
+            const key = element.getAttribute('data-i18n');
+            if (translations[key]) {
+                element.textContent = translations[key];
+            }
+        });
+
+        Object.keys(CHARM_MATERIALS).forEach(materialKey => {
+            const nameElement = document.querySelector(`[data-material="${materialKey}"]`);
+            if (nameElement && translations[materialKey]) {
+                nameElement.textContent = translations[materialKey];
+            }
+        });
     }
 }
 
-@media (max-width: 768px) {
-    .gear-grid {
-        grid-template-columns: 1fr;
+document.addEventListener('DOMContentLoaded', () => {
+    try {
+        window.charmsCalculator = new CharmsCalculator();
+        
+        console.log('%cWhiteout Survival Calculator v2.0 - Chief Charms', 'color: #667eea; font-size: 16px; font-weight: bold;');
+        console.log('%cReady! ⭐', 'color: #764ba2; font-weight: bold;');
+        console.log('Features:');
+        console.log('• 6 Gear pieces with 3 charm slots each');
+        console.log('• Levels 0-16 with upgrade costs');
+        console.log('• Real-time stat and power calculations');
+        console.log('• SvS Points calculation');
+        console.log('• Multi-language support');
+        console.log('Keyboard shortcuts:');
+        console.log('• Ctrl/Cmd + Enter: Calculate');
+        console.log('• Ctrl/Cmd + D: Toggle theme');
+        console.log('• Escape: Close dropdowns');
+        
+    } catch (error) {
+        console.error('Error initializing charms calculator:', error);
     }
-    
-    .page-title {
-        font-size: 1.75rem;
-    }
-    
-    .inventory-grid {
-        gap: 0.75rem;
-    }
-    
-    .results-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .piece-control-buttons {
-        grid-template-columns: 1fr;
-    }
-    
-    .slot-controls {
-        grid-template-columns: 1fr;
-    }
-    
-    .stat-display {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-    
-    .stat-item {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-}
-
-@media (max-width: 640px) {
-    .page-title {
-        font-size: 1.5rem;
-    }
-    
-    .calculator-layout {
-        gap: 1rem;
-    }
-    
-    .charm-slots {
-        gap: 0.75rem;
-    }
-    
-    .charm-slot {
-        padding: 0.75rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .main {
-        padding: 1rem 0;
-    }
-    
-    .inventory-item {
-        flex-direction: column;
-        align-items: stretch;
-        text-align: center;
-        gap: 0.75rem;
-        padding: 0.75rem;
-    }
-    
-    .inventory-item .form-input {
-        width: 100%;
-        max-width: 120px;
-        margin: 0 auto;
-    }
-    
-    .gear-card {
-        padding: 1rem;
-    }
-    
-    .results-container {
-        padding: 1.5rem;
-    }
-}
+});
