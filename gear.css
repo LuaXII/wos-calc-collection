@@ -400,11 +400,11 @@ body.dark-theme .gear-controls .dropdown-menu {
     
     .sidebar {
         position: static;
-        order: 2;
+        order: 1;
     }
     
     .main-content {
-        order: 1;
+        order: 2;
     }
     
     .results-grid {
