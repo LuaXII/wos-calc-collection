@@ -1217,7 +1217,12 @@ class Dropdown {
         this.toggle.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
-            this.toggle();
+            
+            if (this.element.classList.contains('show')) {
+                this.close();
+            } else {
+                this.open();
+            }
         });
 
         document.addEventListener('click', (e) => {
