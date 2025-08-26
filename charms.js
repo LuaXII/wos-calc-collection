@@ -102,96 +102,79 @@ class CharmsCalculator {
         });
     }
 
-setupEventListeners() {
-    const allFromDropdown = this.dropdowns.get('all-from');
-    const allToDropdown = this.dropdowns.get('all-to');
-    
-    if (allFromDropdown) {
-        allFromDropdown.element.addEventListener('change', (e) => {
-            this.setAllFromLevels(e.detail.value);
-        });
-    }
-
-    if (allToDropdown) {
-        allToDropdown.element.addEventListener('change', (e) => {
-            this.setAllToLevels(e.detail.value);
-        });
-    }
-
-    this.gearPieces.forEach(piece => {
-        const pieceFromDropdown = this.dropdowns.get(`${piece}-piece-from`);
-        const pieceToDropdown = this.dropdowns.get(`${piece}-piece-to`);
+    setupEventListeners() {
+        const allFromDropdown = this.dropdowns.get('all-from');
+        const allToDropdown = this.dropdowns.get('all-to');
         
-        if (pieceFromDropdown) {
-            pieceFromDropdown.element.addEventListener('change', (e) => {
-                this.setPieceFromLevels(piece, e.detail.value);
+        if (allFromDropdown) {
+            allFromDropdown.element.addEventListener('change', (e) => {
+                this.setAllFromLevels(e.detail.value);
             });
         }
 
-        if (pieceToDropdown) {
-            pieceToDropdown.element.addEventListener('change', (e) => {
-                this.setPieceToLevels(piece, e.detail.value);
+        if (allToDropdown) {
+            allToDropdown.element.addEventListener('change', (e) => {
+                this.setAllToLevels(e.detail.value);
             });
         }
-    });
 
-    Object.keys(this.inventoryInputs).forEach(material => {
-        if (this.inventoryInputs[material]) {
-            this.inventoryInputs[material].addEventListener('input', (e) => {
-                localStorage.setItem(`charm-inventory-${material}`, e.target.value || '0');
-            });
-        }
-    });
+        this.gearPieces.forEach(piece => {
+            const pieceFromDropdown = this.dropdowns.get(`${piece}-piece-from`);
+            const pieceToDropdown = this.dropdowns.get(`${piece}-piece-to`);
+            
+            if (pieceFromDropdown) {
+                pieceFromDropdown.element.addEventListener('change', (e) => {
+                    this.setPieceFromLevels(piece, e.detail.value);
+                });
+            }
 
-    this.gearPieces.forEach(piece => {
-        const checkbox = document.getElementById(`include-${piece}`);
-        if (checkbox) {
-            checkbox.addEventListener('change', () => {
-                const card = document.querySelector(`.gear-card[data-piece="${piece}"]`);
-                card?.classList.toggle('disabled', !checkbox.checked);
-            });
-        }
-    });
-
-    const charmsForm = document.getElementById('charms-form');
-    if (charmsForm) {
-        charmsForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            this.calculateUpgrades();
+            if (pieceToDropdown) {
+                pieceToDropdown.element.addEventListener('change', (e) => {
+                    this.setPieceToLevels(piece, e.detail.value);
+                });
+            }
         });
+
+        Object.keys(this.inventoryInputs).forEach(material => {
+            if (this.inventoryInputs[material]) {
+                this.inventoryInputs[material].addEventListener('input', (e) => {
+                    localStorage.setItem(`charm-inventory-${material}`, e.target.value || '0');
+                });
+            }
+        });
+
+        this.gearPieces.forEach(piece => {
+            const checkbox = document.getElementById(`include-${piece}`);
+            if (checkbox) {
+                checkbox.addEventListener('change', () => {
+                    const card = document.querySelector(`.gear-card[data-piece="${piece}"]`);
+                    card?.classList.toggle('disabled', !checkbox.checked);
+                });
+            }
+        });
+
+        const charmsForm = document.getElementById('charms-form');
+        if (charmsForm) {
+            charmsForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                this.calculateUpgrades();
+            });
+        }
+
+        document.addEventListener('languageChanged', (e) => {
+            this.updateContent(e.detail.translations);
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+                e.preventDefault();
+                this.calculateUpgrades();
+            }
+        });
+
+        document.addEventListener('change', () => this.saveFormState());
+        document.addEventListener('input', debounce(() => this.saveFormState(), 500));
     }
-
-    document.addEventListener('languageChanged', (e) => {
-        this.updateContent(e.detail.translations);
-    });
-
-    document.addEventListener('keydown', (e) => {
-        if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
-            e.preventDefault();
-            this.calculateUpgrades();
-        }
-    });
-
-    document.addEventListener('click', (e) => {
-        if (e.target.closest('.dropdown') || e.target.closest('.language-selector')) {
-            return;
-        }
-        
-        this.closeAllDropdowns();
-    });
-
-    document.addEventListener('change', () => this.saveFormState());
-    document.addEventListener('input', debounce(() => this.saveFormState(), 500));
-}
-
-closeAllDropdowns() {
-    document.querySelectorAll('.dropdown.show').forEach(dropdown => {
-        dropdown.classList.remove('show');
-    });
-    document.querySelectorAll('.dropdown-menu.show').forEach(menu => {
-        menu.classList.remove('show');
-    });
-}
 
     setAllFromLevels(value) {
         this.gearPieces.forEach(piece => {
