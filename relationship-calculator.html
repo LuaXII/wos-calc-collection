@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relationship Calculator - Whiteout Survival</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="relationship-calculator.css">
+</head>
+<body class="light-theme">
+    <div class="gradient-bg"></div>
+    
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html" class="logo-link">
+                        <h1>Whiteout Survival</h1>
+                        <span class="logo-sub">Calculator Suite</span>
+                    </a>
+                </div>
+                
+                <nav class="breadcrumb">
+                    <a href="index.html" class="breadcrumb-link" data-i18n="home">Home</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <a href="expert-heroes.html" class="breadcrumb-link" data-i18n="expertHeroes">Expert Heroes</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <span class="breadcrumb-current" data-i18n="relationshipCalculator">Relationship Calculator</span>
+                </nav>
+                
+                <div class="header-controls">
+                    <div class="language-selector">
+                        <button id="language-btn" class="language-btn" title="Language">
+                            EN
+                        </button>
+                        <div id="language-dropdown" class="language-dropdown">
+                        </div>
+                    </div>
+                    
+                    <button id="theme-switcher" class="theme-btn" title="Toggle Theme">
+                        <svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"/>
+                            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                        </svg>
+                        <svg class="theme-icon moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <section class="page-header">
+                <h2 class="page-title" data-i18n="relationshipPageTitle">Relationship Calculator</h2>
+                <p class="page-subtitle" data-i18n="relationshipPageSubtitle">Calculate affinity requirements and sigil costs for Expert Heroes</p>
+            </section>
+
+            <div class="calculator-layout">
+                <aside class="sidebar">
+                    <div class="inventory-card card">
+                        <h3 class="card-title">
+                            <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                <line x1="8" y1="21" x2="16" y2="21"/>
+                                <line x1="12" y1="17" x2="12" y2="21"/>
+                            </svg>
+                            <span data-i18n="currentInventory">Current Inventory</span>
+                        </h3>
+                        
+                        <div class="inventory-grid">
+                            <div class="inventory-item">
+                                <div class="material-info">
+                                    <div class="material-icon" data-icon-for="compass">🧭</div>
+                                    <span class="material-name" data-material="compass">Compass</span>
+                                </div>
+                                <input type="number" id="inventory-compass" class="form-input" placeholder="0" min="0">
+                                <div class="material-value">+10 Affinity</div>
+                            </div>
+                            
+                            <div class="inventory-item">
+                                <div class="material-info">
+                                    <div class="material-icon" data-icon-for="fieryHeart">❤️</div>
+                                    <span class="material-name" data-material="fieryHeart">Fiery Heart</span>
+                                </div>
+                                <input type="number" id="inventory-fieryHeart" class="form-input" placeholder="0" min="0">
+                                <div class="material-value">+100 Affinity</div>
+                            </div>
+                            
+                            <div class="inventory-item">
+                                <div class="material-info">
+                                    <div class="material-icon" data-icon-for="sailOfConquest">⛵</div>
+                                    <span class="material-name" data-material="sailOfConquest">Sail of Conquest</span>
+                                </div>
+                                <input type="number" id="inventory-sailOfConquest" class="form-input" placeholder="0" min="0">
+                                <div class="material-value">+1000 Affinity</div>
+                            </div>
+
+                            <div class="inventory-item">
+                                <div class="material-info">
+                                    <div class="material-icon" data-icon-for="expertSigil">🗡️</div>
+                                    <span class="material-name" data-material="expertSigil">Expert Sigil</span>
+                                </div>
+                                <input type="number" id="inventory-expertSigil" class="form-input" placeholder="0" min="0">
+                                <div class="material-value">Relationship Upgrade</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hero-selector card">
+                        <h3 class="card-title">
+                            <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                            <span data-i18n="selectHero">Select Hero</span>
+                        </h3>
+                        
+                        <div class="hero-buttons">
+                            <button class="hero-btn active" data-hero="cyrille">
+                                <img src="https://via.placeholder.com/40x40/667eea/ffffff?text=C" alt="Cyrille" class="hero-btn-image">
+                                <span data-i18n="cyrille">Cyrille</span>
+                            </button>
+                            <button class="hero-btn" data-hero="agnes">
+                                <img src="https://via.placeholder.com/40x40/764ba2/ffffff?text=A" alt="Agnes" class="hero-btn-image">
+                                <span data-i18n="agnes">Agnes</span>
+                            </button>
+                            <button class="hero-btn" data-hero="holger">
+                                <img src="https://via.placeholder.com/40x40/10b981/ffffff?text=H" alt="Holger" class="hero-btn-image">
+                                <span data-i18n="holger">Holger</span>
+                            </button>
+                            <button class="hero-btn" data-hero="romulus">
+                                <img src="https://via.placeholder.com/40x40/f59e0b/ffffff?text=R" alt="Romulus" class="hero-btn-image">
+                                <span data-i18n="romulus">Romulus</span>
+                            </button>
+                        </div>
+                    </div>
+                </aside>
+
+                <main class="main-content">
+                    <form id="relationship-form" class="relationship-form">
+                        <div class="hero-card card" id="hero-display">
+                            <div class="hero-header">
+                                <div class="hero-avatar-large">
+                                    <img src="https://via.placeholder.com/100x100/667eea/ffffff?text=C" alt="Cyrille" id="hero-avatar">
+                                </div>
+                                <div class="hero-details">
+                                    <h3 class="hero-name" id="hero-name" data-i18n="cyrille">Cyrille</h3>
+                                    <div class="relationship-status">
+                                        <span class="status-label" data-i18n="relationshipStatus">Relationship Status:</span>
+                                        <span class="status-value" id="current-relationship" data-i18n="stranger">Stranger</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="level-controls">
+                                <div class="level-group">
+                                    <label class="form-label" data-i18n="currentLevel">Current Level</label>
+                                    <div class="dropdown" id="current-level-dropdown">
+                                        <button type="button" class="dropdown-toggle">
+                                            <span class="dropdown-text">1</span>
+                                            <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M6 9l6 6 6-6"/>
+                                            </svg>
+                                        </button>
+                                        <div class="dropdown-menu"></div>
+                                    </div>
+                                </div>
+
+                                <div class="level-group">
+                                    <label class="form-label" data-i18n="targetLevel">Target Level</label>
+                                    <div class="dropdown" id="target-level-dropdown">
+                                        <button type="button" class="dropdown-toggle">
+                                            <span class="dropdown-text">100</span>
+                                            <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M6 9l6 6 6-6"/>
+                                            </svg>
+                                        </button>
+                                        <div class="dropdown-menu"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="progress-display">
+                                <div class="affinity-progress">
+                                    <div class="progress-header">
+                                        <span class="progress-label" data-i18n="affinityProgress">Affinity Progress</span>
+                                        <span class="progress-values" id="affinity-values">0 / 200</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" id="affinity-progress-fill" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary calculate-btn">
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                            </svg>
+                            <span data-i18n="calculateRelationship">Calculate Relationship Requirements</span>
+                        </button>
+                    </form>
+
+                    <div id="relationship-results" class="results-section"></div>
+                </main>
+            </div>
+        </div>
+    </main>
+
+    <script src="common.js"></script>
+    <script src="relationship-calculator.js"></script>
+</body>
+</html>
